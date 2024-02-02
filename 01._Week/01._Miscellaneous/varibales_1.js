@@ -18,3 +18,9 @@ hobbies.push("cooking");
 
 me.hobbies = hobbies;
 console.log(me);
+
+// Types in JS: number, string, boolean, object, function, undefined, null, symbol
+
+// Type coercion: Always use === and !== for strict equality and inequality checks
+2 == "2"; // true
+2 === "2"; // false
