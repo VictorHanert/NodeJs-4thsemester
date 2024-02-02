@@ -3,3 +3,7 @@
 
 
 ### Week 1:
+For pushing with terminal:
+git add -A
+git commit -m "message"
+git push
