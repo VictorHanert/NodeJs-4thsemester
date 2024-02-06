@@ -14,8 +14,11 @@ console.log(b);
 const friends = [];
 
 // What a lonely array. Add at least 3 friend objects to it.  
-friends.push({friend1: "Victor", friend2: "Karl", friend3: "Mads"});
-
+friends.push(
+    {name: 'victor', age: 22, gender: 'male'},
+    {name: 'ole', age: 31, gender: 'male'},
+    {name: 'lis', age: 21, gender: 'female'}
+);
 console.log(friends);
 
 // --------------------------------------
