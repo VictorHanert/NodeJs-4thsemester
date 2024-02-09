@@ -1,0 +1,8 @@
+Examples: maven, gradle, atn npm, cargo
+
+Maven (Java)   vs   npm (Node.js)
+pom.xml             package.json
+
+meta                meta
+dependecies         dependecies
+life cycles         scripts
