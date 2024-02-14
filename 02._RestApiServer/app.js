@@ -35,8 +35,8 @@ data = [
 
 // routes
 app.get("/drinks", (req, res) => {
-    res.send(data)
-})
+    res.send(data);
+});
 
 app.get("/drinks/:id", (req, res) => {
     const id = req.params.id;
