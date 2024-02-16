@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-data = [
+const drinks = [
     {
         "id": 1,
         "name": "Espresso Martini",
@@ -30,23 +30,31 @@ data = [
         "description": "A cocktail made with vodka, triple sec, cranberry juice, and freshly squeezed lime juice.",
         "ingredients": ["Vodka", "Triple sec", "Cranberry juice", "Lime juice"]
     }
-]
+];
 
 
 // routes
 app.get("/drinks", (req, res) => {
-    res.send(data);
+    res.send({ data: drinks });
 });
 
 app.get("/drinks/:id", (req, res) => {
-    const id = req.params.id;
-    const drink = data.find(drink => drink.id === id);
+    const id = Number(req.params.id);
+    const foundDrink = drinks.find((drink) => drink.id === id);
 
-    if (!drink) {
-        return res.status(404).send("Drink not found");
+    if (!foundDrink) {
+        return res.status(404).send({ data: "Drink not found" });
     }
 
-    res.send(drink);
+    res.send({ data: foundDrink });
 });
 
-app.listen(8080);
+
+// Always in bottom
+app.listen(8080, (error) => {
+    if (error) {
+        console.log("Error starting the server");
+        return;
+    }
+    console.log("Server is now running on port", 8080)
+})
