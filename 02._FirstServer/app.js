@@ -4,6 +4,9 @@ const express = require("express");
 // instansieret et express objekt
 const app = express();
 
+// tillader os at parse body's
+app.use(express.json());
+
 // route  -  endpoint, callback-function med (request, response)
 app.get("/", (req, res) => {
     res.send({data: "Welcome to the server"});
@@ -38,10 +41,32 @@ app.get("/wallet/:withdrawalAmount", (req, res) => {
     }
 });
 
+// qeury parameters:
+// http://localhost:8080/saySomethingNiceAboutMe/hello?handsome=very&tall=indeed&cool=always
+app.get("/saySomethingNiceAboutMe/:greeting", (req, res) => {
+    console.log(req.params.greeting);
+    console.log(req.query);
+    if (req.query.handsome === 'very') {
+        return res.send( '<h1>thanks cool cat</h1>' );
+    }
+    return res.send( '<h1>aint no thang</h1>');
+});
+
+app.post("/postman", (req, res) => {
+    console.log(req.body);
+    res.send(req.body);
+});
 
 
-// opretter en port (altid i bunden)
+
+// ------------ opretter en port (altid i bunden) -----------------
 // well-known ports: 
 // http: 80 og dev: 8080
 // https: 443 og dev: 9090
-app.listen(8080);
+app.listen(8080, (error) => {
+    if (error) {
+        console.log("Error starting the server");
+        return;
+    }
+    console.log("Server is now running on port", 8080)
+})
