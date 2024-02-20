@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+app.use(express.json());
+
 const drinks = [
     {
         "id": 1,
@@ -32,7 +34,6 @@ const drinks = [
     }
 ];
 
-
 // routes
 app.get("/drinks", (req, res) => {
     res.send({ data: drinks });
@@ -48,6 +49,40 @@ app.get("/drinks/:id", (req, res) => {
 
     res.send({ data: foundDrink });
 });
+
+app.post("/drinks", (req, res) => {
+    const newDrink = req.body;
+    drinks.push(newDrink);
+    res.send({ data: drinks });
+});
+
+app.put("/drinks/:id", (req, res) => {
+    const id = Number(req.params.id);
+    const foundDrinkIndex = drinks.findIndex((drink) => drink.id === id);
+
+    if (foundDrinkIndex === -1) {
+        return res.status(404).send({ data: "Drink not found" });
+    }
+
+    const updatedDrink = req.body;
+    drinks[foundDrinkIndex] = { ...drinks[foundDrinkIndex], ...updatedDrink };
+
+    res.send({ data: drinks[foundDrinkIndex] });
+});
+
+app.delete("/drinks/:id", (req, res) => {
+    const id = Number(req.params.id);
+    const foundDrinkIndex = drinks.findIndex((drink) => drink.id === id);
+
+    if (foundDrinkIndex === -1) {
+        return res.status(404).send({ data: "Drink not found" });
+    }
+
+    drinks.splice(foundDrinkIndex, 1);
+    res.send({ data: drinks });
+});
+
+
 
 
 // Always in bottom
