@@ -3,6 +3,7 @@ const app = express();
 
 app.use(express.json());
 
+// Data:
 const drinks = [
     {
         "id": 1,
@@ -34,52 +35,73 @@ const drinks = [
     }
 ];
 
+let nextId = 5;
+
 // routes
 app.get("/drinks", (req, res) => {
     res.send({ data: drinks });
 });
 
 app.get("/drinks/:id", (req, res) => {
-    const id = Number(req.params.id);
-    const foundDrink = drinks.find((drink) => drink.id === id);
+    const providedDrinkId = Number(req.params.id);
+    const foundDrink = drinks.find((drink) => drink.id === providedDrinkId);
 
     if (!foundDrink) {
-        return res.status(404).send({ data: "Drink not found" });
+        return res.status(404).send({ error: "Drink not found" });
+    } else {
+        res.send({ data: foundDrink });
     }
-
-    res.send({ data: foundDrink });
 });
 
 app.post("/drinks", (req, res) => {
     const newDrink = req.body;
+    newDrink.id = nextId++;
     drinks.push(newDrink);
     res.send({ data: drinks });
 });
 
 app.put("/drinks/:id", (req, res) => {
-    const id = Number(req.params.id);
-    const foundDrinkIndex = drinks.findIndex((drink) => drink.id === id);
+    const providedDrinkId = Number(req.params.id);
+    const foundDrinkIndex = drinks.findIndex((drink) => drink.id === providedDrinkId);
 
     if (foundDrinkIndex === -1) {
-        return res.status(404).send({ data: "Drink not found" });
+        return res.status(404).send({ error: "Drink not found" });
     }
-
+    
+    const originalDrink = drinks[foundDrinkIndex];
     const updatedDrink = req.body;
-    drinks[foundDrinkIndex] = { ...drinks[foundDrinkIndex], ...updatedDrink };
+    drinks[foundDrinkIndex] = { ...originalDrink, ...updatedDrink, id: providedDrinkId };
 
     res.send({ data: drinks[foundDrinkIndex] });
 });
 
-app.delete("/drinks/:id", (req, res) => {
-    const id = Number(req.params.id);
-    const foundDrinkIndex = drinks.findIndex((drink) => drink.id === id);
+app.patch("/drinks/:id", (req, res) => {
+    const providedDrinkId = Number(req.params.id);
+    const foundDrinkIndex = drinks.findIndex((drink) => drink.id === providedDrinkId);
 
     if (foundDrinkIndex === -1) {
-        return res.status(404).send({ data: "Drink not found" });
+        return res.status(404).send({ error: `Drink not found by id: ${providedDrinkId}.` });
     }
+    else {
+        const originalDrink = drinks[foundDrinkIndex];
+        const updatedDrink = { ...originalDrink, ...req.body, id: providedDrinkId };
 
-    drinks.splice(foundDrinkIndex, 1);
-    res.send({ data: drinks });
+        drinks[foundDrinkIndex] = updatedDrink;
+        res.send({ data: updatedDrink });
+    }
+});
+
+app.delete("/drinks/:id", (req, res) => {
+    const drinkId = Number(req.params.id);
+    const foundDrinkIndex = drinks.findIndex((drink) => drink.id === drinkId);
+
+    if (foundDrinkIndex === -1) {
+        return res.status(404).send({ error: `Drink not found by id: ${drinkId}.` });
+    }
+    else {
+        drinks.splice(foundDrinkIndex, 1);
+        res.send({ data: drinks });
+    }
 });
 
 
@@ -91,5 +113,5 @@ app.listen(8080, (error) => {
         console.log("Error starting the server");
         return;
     }
-    console.log("Server is now running on port", 8080)
+    console.log("Server is now running on port", 8080);
 })
