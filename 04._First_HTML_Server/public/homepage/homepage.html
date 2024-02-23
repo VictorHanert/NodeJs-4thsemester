@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <style>
+        body {
+            color: white;
+            background-color: #3f3b3b;
+            text-align: center;
+        } 
+        div {
+            margin: 20px 20%;
+            background-color: #878587;
+            padding: 30px;
+        } 
+        a{color: lightblue;}a:hover{color: white;}
+    </style>
 </head>
 <body>
-    <h1>Does this work?</h1>
+    <div>
+        <h1 id="greeting">
+        </h1> 
+        <hr>
+        <p>Enter your name to get a greeting:</p>
+        <input type="text" id="name" placeholder="Enter your name" autocomplete="off">
+        <button onclick="showGreeting()">Get greeting</button>
+    </div>
+
+    <a href="/publicSquare">Public Square</a>
     
-    
+    <script>
+        const nameInput = document.getElementById('name-input');
+        const greeting = document.getElementById('greeting');
+
+        fetch('/greeting')
+            .then(response => response.json())
+            .then(result => {
+                greeting.textContent = result.data;
+            });
+
+        function showGreeting() {
+            const name = nameInput.value;
+            fetch('/greeting?name=' + name)
+                .then(response => response.json())
+                .then(result => {
+                    greeting.textContent = result.data;
+                });
+        }
+    </script>
 </body>
 </html>
