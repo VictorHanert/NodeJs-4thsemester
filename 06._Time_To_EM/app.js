@@ -16,7 +16,7 @@ app.get("/dateOfEM", (req, res) => {
     const formattedTime = startDateOfEM.toLocaleTimeString('en-US', { 
         hour: 'numeric', 
         minute: 'numeric', 
-        hour12: false // Ensure 24-hour format
+        hour12: false // 24-hour format
     });
     res.send({ "data": `${formattedDate} - ${formattedTime}` });
 });
