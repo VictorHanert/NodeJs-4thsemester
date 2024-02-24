@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            color: white;
+            background-color: #067993;
+            text-align: center;
+        } 
+        div {
+            margin: 20px 20%;
+            background-color: #108aa5;
+            border: 1px solid black;
+            padding: 30px;
+        } 
+        button{ padding: 10px; } button:hover{ color: red; }
+
+        #countdownBox {
+            cursor: pointer;
+            background-color: #899497;
+        }
+        #countdownBox:hover {
+            background-color: #b3b6b7;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>⚽️ EM 2024 ⚽️</h1>
+        <h2>📍 In Germany 🇩🇪</h2>
+        <h2 id="date"></h2>
+        <hr>
+
+        <div onclick="showCountdown()" id="countdownBox">
+            <h2 id="title">Click on me to show how long time to the first match! ⏰</h2>
+            <h3 id="countdown"></h3> 
+        </div>
+    </div>
+    
+    <script>
+        const date = document.getElementById('date');
+        fetch('/dateOfEM')
+            .then(response => response.json())
+            .then(result => {
+                date.textContent = "📅 " + result.data;
+            });
+
+        const title = document.getElementById('title');
+        const countdown = document.getElementById('countdown');
+        const showCountdown = () => {
+            fetch('/timeToEM')
+                .then(response => response.json())
+                .then(result => {
+                    title.textContent = 'Time to EM from today:';
+                    countdown.textContent = result.data;
+                });
+        }
+    </script>
+</body>
+</html>
