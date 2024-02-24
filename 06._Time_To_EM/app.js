@@ -21,11 +21,6 @@ app.get("/dateOfEM", (req, res) => {
     res.send({ "data": `${formattedDate} - ${formattedTime}` });
 });
 
-const currentDate = new Date();
-console.log(currentDate);
-console.log(startDateOfEM);
-console.log(startDateOfEM - currentDate);
-
 app.get("/timeToEM", (req, res) => {
     const currentDate = new Date();
     const timeDifference = startDateOfEM - currentDate;
@@ -45,3 +40,6 @@ app.get("/timeToEM", (req, res) => {
 
 // bottom
 app.listen(8080, () => console.log("Server is now running on port 8080"));
+
+// Export the Express API
+module.exports = app;
