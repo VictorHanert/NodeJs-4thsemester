@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/homepage/homepage.html");
+  res.sendFile(__dirname + "/public/homepage/homepage.html");
 });
 
 const startDateOfEM = new Date("2024-06-14T21:00:00");
@@ -40,7 +41,7 @@ app.get("/timeToEM", (req, res) => {
 
 // bottom
 const PORT = 8080;
-app.listen(PORT, () => console.log("Server is running on port", PORT));
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
 // Export the Express API
 module.exports = app;
