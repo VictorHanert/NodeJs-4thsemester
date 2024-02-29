@@ -6,7 +6,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/homepage/homepage.html");
 });
 
-const startDateOfEM = new Date("2024-06-14T21:00:00");
+const startDateOfEM = new Date("2024-06-14T22:00:00");
 
 app.get("/dateOfEM", (req, res) => {
     const formattedDate = startDateOfEM.toLocaleDateString('en-US', { 
@@ -14,12 +14,7 @@ app.get("/dateOfEM", (req, res) => {
         day: 'numeric', 
         year: 'numeric'
     });
-    const formattedTime = startDateOfEM.toLocaleTimeString('en-US', { 
-        hour: 'numeric', 
-        minute: 'numeric', 
-        hour12: false // 24-hour format
-    });
-    res.send({ "data": `${formattedDate} - ${formattedTime}` });
+    res.send({ "data": `${formattedDate}` });
 });
 
 app.get("/timeToEM", (req, res) => {

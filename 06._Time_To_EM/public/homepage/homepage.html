@@ -15,9 +15,7 @@
             background-color: #108aa5;
             border: 1px solid black;
             padding: 30px;
-        } 
-        button{ padding: 10px; } button:hover{ color: red; }
-
+        }
         #countdownBox {
             cursor: pointer;
             background-color: #899497;
@@ -30,25 +28,19 @@
 </head>
 <body>
     <div>
-        <h1>⚽️ EM 2024 ⚽️</h1>
+        <h1>🇩🇰⚽️ EM 2024 ⚽️🇩🇰</h1>
         <h2>📍 In Germany 🇩🇪</h2>
-        <h2 id="date"></h2>
+        <h2>📅 June 14, 2024 - 21:00</h2>
         <hr>
 
         <div onclick="showCountdown()" id="countdownBox">
             <h2 id="title">Click on me to show how long time to the first match! ⏰</h2>
-            <h3 id="countdown"></h3> 
+            <h3 id="countdown"></h3>
+            <h4 id="paragraph"></h4>
         </div>
     </div>
     
     <script>
-        const date = document.getElementById('date');
-        fetch('/dateOfEM')
-            .then(response => response.json())
-            .then(result => {
-                date.textContent = "📅 " + result.data;
-            });
-
         const title = document.getElementById('title');
         const countdown = document.getElementById('countdown');
         const showCountdown = () => {
@@ -56,7 +48,16 @@
                 .then(response => response.json())
                 .then(result => {
                     title.textContent = 'Time to EM from today:';
-                    countdown.textContent = result.data;
+                    countdown.textContent = result.data
+                
+                    // Update time every second after the first fetch
+                    setInterval(() => {
+                        fetch('/timeToEM')
+                            .then(response => response.json())
+                            .then(result => {
+                                countdown.textContent = result.data;
+                            });
+                    }, 1000);
                 });
         }
     </script>
