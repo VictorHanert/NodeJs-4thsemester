@@ -1,0 +1,25 @@
+body {
+    background-color: aliceblue;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo {
+    width: 8em;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    flex: 1;
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+  }

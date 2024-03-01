@@ -33,6 +33,12 @@ app.get("/knownpeople", (req, res) => {
     res.send({ "data": knownNames.length });
 });
 
+app.get("/proxy", (req, res) => {
+    fetch("https://www.google.dk")
+        .then(response => response.text())
+        .then(data => res.send(data));
+});
+
 // ---------- bottom ------------
 const PORT = 8080;
 app.listen(PORT, () => console.log("Server is now running on port", PORT));
