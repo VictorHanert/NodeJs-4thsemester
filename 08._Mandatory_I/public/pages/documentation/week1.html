@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Documentation</title>
+    <meta property="og:image" content="https://nodejs.org/static/images/logo-hexagon-card.png">
+    <link rel="icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">            
+            <img src="/assets/images/logo.png" id="logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/assignment">Assignment</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Documentation
+                </a>
+                <ul class="dropdown-menu text-center">
+                  <li><a class="dropdown-item" href="/week1">Week 1</a></li>
+                  <li><a class="dropdown-item" href="/week2">Week 2</a></li>
+                  <li><a class="dropdown-item" href="/week3">Week 3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <main class="p-5 px-4">
+        <h1><b>Week 1</b> - Introduction to Node.js</h1>
+        <hr>
+        <div class="row gx-5">
+            <div class="col">
+                <h4>What is node.js?</h4>
+                <p>A cross-platform, to have javascript both for frontend and backend, 
+                    so that developers only need to know one language.
+                    Used for many different kinds of applications.</p>
+                <h4>What is npm?</h4>
+                <p>Node Package Manager, a package manager for JavaScript programming language.
+                    It is the default package manager for the JavaScript runtime environment Node.js.</p>
+                <h4>What is Express?</h4>
+                <p>Express, which we use this semester, is a minimal and flexible Node.js web application framework 
+                    that provides a robust set of features for web and mobile applications.</p>
+                <h4>How to push code changes from terminal:</h4>
+                <ul>
+                    <li>git add -A</li>
+                    <li>git commit -m "message"</li>
+                    <li>git push</li>
+                </ul>
+            </div>
+            <div class="col">
+                <div class="border border-secondary shadow p-3">
+                    <h4>Learning goals:</h4>
+                    <hr>
+                            <ul>
+                                <li>Variables</li>
+                                <li>Data types</li>
+                                <li>REST API conventions</li>
+                                <li>Code conventions / Clean Code</li>
+                            </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <footer class="p-3">
+        <i><p id="copyright-year"></p></i>
+    </footer>
+    <script src="/assets/js/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+* {color: #233565;} .main-color{color: #233565;}
+
+body {
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo {
+    width: 8em;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    flex: 1;
+    background-color: #e8f3ff;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+}
