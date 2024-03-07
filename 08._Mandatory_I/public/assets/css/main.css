@@ -20,9 +20,8 @@ main {
     background-color: #e8f3ff;
 }
 
-.sticky-top{
-    background-color: #e8f3ff;
-
+#learning-goals li {
+    padding-bottom: 10px;
 }
 
 footer {
