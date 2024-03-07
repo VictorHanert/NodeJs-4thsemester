@@ -20,6 +20,11 @@ main {
     background-color: #e8f3ff;
 }
 
+.sticky-top{
+    background-color: #e8f3ff;
+
+}
+
 footer {
     display: flex;
     justify-content: space-around;

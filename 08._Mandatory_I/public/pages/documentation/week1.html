@@ -41,39 +41,73 @@
         </div>
       </nav>
       <main class="p-5 px-4">
-        <h1><b>Week 1</b> - Introduction to Node.js</h1>
-        <hr>
+        <div class="sticky-top">
+          <h1><b>Week 1</b> - Introduction to Node.js</h1>
+          <hr>
+        </div>
         <div class="row gx-5">
             <div class="col">
-                <h4>What is node.js?</h4>
-                <p>A cross-platform, to have javascript both for frontend and backend, 
-                    so that developers only need to know one language.
-                    Used for many different kinds of applications.</p>
-                <h4>What is npm?</h4>
-                <p>Node Package Manager, a package manager for JavaScript programming language.
-                    It is the default package manager for the JavaScript runtime environment Node.js.</p>
-                <h4>What is Express?</h4>
-                <p>Express, which we use this semester, is a minimal and flexible Node.js web application framework 
-                    that provides a robust set of features for web and mobile applications.</p>
-                <h4>How to push code changes from terminal:</h4>
+              <h4>How to push code changes from terminal:</h4>
                 <ul>
                     <li>git add -A</li>
                     <li>git commit -m "message"</li>
                     <li>git push</li>
                 </ul>
+                <h4>What is node.js?</h4>
+                <p>A cross-platform, to have javascript both for frontend and backend, 
+                    so that developers only need to know one language.
+                    Used for many different kinds of applications.</p>
+                <h5>npm</h5>
+                <p>Node Package Manager, a package manager for JavaScript programming language.
+                    It is the default package manager for the JavaScript runtime environment Node.js.</p>
+                <h5>Express</h5>
+                <p>Express, which we use this semester, is a minimal and flexible Node.js web application framework 
+                    that provides a robust set of features for web and mobile applications.</p>
+                <h4>Datatypes in JavaScript</h4>
+                <p>JavaScript has 7 data types: 
+                    <ul>
+                        <li>Number</li>
+                        <li>String</li>
+                        <li>Boolean</li>
+                        <li>Object</li>
+                        <li>Undefined</li>
+                        <li>Null</li>
+                        <li>Symbol</li>
+                    </ul>
+                    <p>Always use <b>'const'</b> as default.<br>
+                      const is constant NOT in the value but in the assignment,
+                      meaning that it cannot be reassigned and thus also HAS to be assigned</p>
+                    <p>Use <b>'let'</b> when you need to reassign a variable.</p>
+
+                  <p>To avoid type coersion, use <b>===</b> instead of <b>==</b></p>
+                  <b>Different ways of definings strings:</b>
+                  <img src="/assets/images/defining_strings.png" width="100%">
+
+                  <h4 class="mt-5">Designing a REST API</h4>
+                  <p>Knows the three REST conventions: 
+                    <br>1. Using the right HTTP verbs
+                    <br>2. Ordering your URL correctly
+                    <br>3. Naming (noun, plural) that maps to collections in your system
+                  </p>
+                  <img src="/assets/images/rest_api_design.png" width="100%">
             </div>
             <div class="col">
-                <div class="border border-secondary shadow p-3">
+                <div class="border border-secondary shadow p-3 sticky-top">
                     <h4>Learning goals:</h4>
                     <hr>
                             <ul>
-                                <li>Variables</li>
-                                <li>Data types</li>
-                                <li>REST API conventions</li>
-                                <li>Code conventions / Clean Code</li>
+                              <li>Can work with Git in the terminal.</li>
+                              <li>Can explain what Node.js is and how to run files with it.</li>
+                              <li>Understand and work with data types in Javascript.</li>
+                              <li>Knows the existing data types in Javascript and can work with them.</li>
+                              <li>Understands type coercion and strategies to avoid it.</li>
+                              <li>Can design a REST API.</li>                              
                             </ul>
                 </div>
             </div>
+        </div>
+        <div class="text-center mt-5">
+          <button class="btn btn-primary" onclick="'/week2'">Next week -></button>
         </div>
     </main>
     
