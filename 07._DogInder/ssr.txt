@@ -1,0 +1,10 @@
+Server-side-rendering
+
+Fordele ved SSR:
+- leverer noget hurtigere (load time)
+- bruger færre ressourcer
+- stort argument for virksomheder: løser alle problemer med 'CORS'
+- SEO-optimeret, første der bliver sendt er en side fyldt med indhold
+
+Ulemper:
+- kan hurtigt blive besværligt
