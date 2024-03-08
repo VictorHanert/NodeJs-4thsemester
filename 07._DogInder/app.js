@@ -23,9 +23,9 @@ app.get("/contact", (req, res) => {
 });
 
 // =========== API ============
-app.get("/api/matches", (req, res) => {
-const matches = getMatches();
-res.send({ data: matches });
+app.get("/api/matches", async (req, res) => {
+    const matches = await getMatches();
+    res.send({ data: matches });
 });
 
 
