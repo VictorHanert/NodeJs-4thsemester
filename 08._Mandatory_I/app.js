@@ -2,25 +2,43 @@ import express from 'express';
 const app = express();
 app.use(express.static('public'));
 
-import path from 'path';
+import { 
+    homepagePage, 
+    assignment_descriptionPage, 
+    week1Page,
+    week2Page,
+    week3Page,
+    week4Page,
+    week5Page,
+    week6Page
+} from './util/readPages.js';
 
 // =========== HTML ============
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/pages/homepage/homepage.html"));
+    res.send(homepagePage);
 });
 
 app.get("/assignment", (req, res) => {
-    res.sendFile(path.resolve("public/pages/homepage/assignment_info.html"));
+    res.send(assignment_descriptionPage);
 });
 
 app.get("/week1", (req, res) => {
-    res.sendFile(path.resolve("public/pages/documentation/week1.html"));
+    res.send(week1Page);
 });
 app.get("/week2", (req, res) => {
-    res.sendFile(path.resolve("public/pages/documentation/week2.html"));
+    res.send(week2Page);
 });
 app.get("/week3", (req, res) => {
-    res.sendFile(path.resolve("public/pages/documentation/week3.html"));
+    res.send(week3Page);
+});
+app.get("/week4", (req, res) => {
+    res.send(week4Page);
+});
+app.get("/week5", (req, res) => {
+    res.send(week5Page);
+});
+app.get("/week6", (req, res) => {
+    res.send(week6Page);
 });
 
 const PORT = 8080;
