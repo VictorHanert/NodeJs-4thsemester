@@ -28,6 +28,20 @@ app.get("/greeting", (req, res) => {
     }
 });
 
+app.get("/loggedIn", (req, res) => {
+    console.log("Welcome!");
+    res.send({ data: "You are now logged in!"});
+});
+
+app.get("/logIn", (req, res) => {
+    if (req.query.password !== "SesameOpenUp") {
+        res.status(400).send({ data: "Wrong password..." });
+    }
+    else {
+        res.redirect('/loggedIn');
+    }
+});
+
 const knownNames = ["John", "Jim", "Bob"];
 app.get("/knownpeople", (req, res) => {
     res.send({ "data": knownNames.length });
