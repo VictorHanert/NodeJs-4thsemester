@@ -6,17 +6,65 @@
   <div class="col">
     <h4>Nodemon</h4>
     <p>
-      Nodemon is a utility that will monitor for any changes in your source and
-      automatically restart your server. Perfect for development. <br>
-      <code>npm install -g nodemon</code>
+      Nodemon is a utility that will monitor for any changes in the source and
+      automatically restart the server. Good for development, but not good for
+      larger applications or environments that requires lots of memory-load.
+      <br />
+      <code>npm install -g nodemon</code> - To install globally. <br />
+      <code>nodemon app.js</code> - To start the server.
     </p>
     <p>
-      nodemon.json shall be added when using SSR.</p>
+      <b>nodemon.json</b> shall be added to root of project when using
+      <b>SSR</b>, because of only loading the server one time when starting it
+      up. This is a performance optimization. <br />
+      nodemon as default will NOT watch for changes in files, therefor 'ext'
+      tells which extentions to listen to: <br />
       <code>{"ext": "html,js,json,css"}</code>
+    </p>
     <h4>Loop methods</h4>
+    <p>forEach, map, filter, sort, find and reduce.</p>
     <p>
-      We wish to use loop methods and in a functional manner (avoiding side
-      effects). for-loops are ONLY for finger counting.
+      Using these loop methods in a functional manner reduces the risk of
+      errors, confusion, and unintended side effects. It also makes the code
+      shorter and clearer<br />
+      for-loops are ONLY for finger counting (counting to a number).
+    </p>
+    <h4>Anatomy of an URL</h4>
+    <img
+      src="/assets/images/anatomyOfAnURL.png"
+      alt="URL"
+      class="img-fluid mb-3"
+    />
+    <h4>POST requests</h4>
+    <p>
+      POST requests in Express are handled with the
+      <code>app.post()</code> method.
+    </p>
+    <img
+      src="/assets/images/post-request.png"
+      alt="POST request"
+      class="img-fluid mb-3"
+    />
+    <h4>Body parsing</h4>
+    <p>
+      When a POST request is sent to the server, the server needs to parse the
+      body of the request to get the data.
+    </p>
+    <p>If the data is JSON the server needs to parse it as JSON.</p>
+    <p>
+      To parse the body of a request in Express, you need to provide a
+      middleware:<br />
+    </p>
+    <img
+      src="/assets/images/body-parsing.png"
+      alt="Body parsing"
+      class="img-fluid mb-3"
+    />
+    <p>
+      When a POST request is made to the '/example' endpoint, express.json()
+      middleware parses the JSON data from the request body, and you can access
+      it in your route handler via req.body. This allows you to work with the
+      data sent by the client in the POST request.
     </p>
   </div>
 
