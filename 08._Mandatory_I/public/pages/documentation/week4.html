@@ -4,8 +4,30 @@
 </div>
 <div class="row gx-5">
   <div class="col">
-    <h4>title</h4>
-    <p>text</p>
+    <h4>PUT vs PATCH</h4>
+    <p>
+      PUT and PATCH are two different HTTP methods that are used to update a
+      resource. 
+      <br >Use <b>PUT</b> - If you want to update a resource <u>completely</u>.
+      <br >Use <b>PATCH</b> - If you want to update <u>only a part</u> of a resource.
+    </p>
+
+    <img src="/assets/images/patch-example.png" alt="PATCH" class="img-fluid" />
+  <p>
+    Here is the PATCH method used to update the drink by its id. <br >
+    If the drink is found, it updates the drink with the data provided in the request body. 
+    It creates a new object 'drinkToUpdate' by merging the original drink data with the data sent in the request body. 
+    Then, it updates the drinks array with the updated drink and sends back the updated drink data as the response.
+  </p>
+  <h4>Time and Date in JS</h4>
+  <p>
+    The Date object is used to work with dates and times. 
+    <br >Date objects are created with the new Date() constructor.
+    <br >There are four ways to create a new date object:
+    <br >new Date()
+    <br >new Date(year, month, day, hours, minutes, seconds, milliseconds)
+    <br >new Date(milliseconds)
+    <br >new Date(date string)
   </div>
 
   <div class="col-md-6">
