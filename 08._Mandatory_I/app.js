@@ -2,7 +2,8 @@ import express from 'express';
 const app = express();
 app.use(express.static('public'));
 
-import { 
+const readPages = await import('./util/readPages.js');
+const { 
     homepagePage, 
     assignment_descriptionPage, 
     week1Page,
@@ -11,7 +12,7 @@ import {
     week4Page,
     week5Page,
     week6Page
-} from './util/readPages.js';
+} = readPages;
 
 // =========== HTML ============
 app.get("/", (req, res) => {
