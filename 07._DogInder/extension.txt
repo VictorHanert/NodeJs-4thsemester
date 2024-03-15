@@ -1,0 +1,13 @@
+
+Problem når vi bruger SSR så læses filerne ind før serveren startes
+Derfor skal vi trigger at serveren restartes hver gang der er updates i forskellige filer:
+
+$ nodemon --ext html, js,json app.js
+Er en dårlig løsning da det skal gøres hver gang man starter nodemon op.
+
+I stedet lav konfigurationsfil "nodemon.json" i root, 
+så vil nodemon ldede efter filerne og læser herfra "flagene ind i node.
+
+{
+    "ext": "html,js,json,css"
+}
