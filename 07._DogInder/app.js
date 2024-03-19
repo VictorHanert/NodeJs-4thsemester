@@ -2,7 +2,7 @@ import express from 'express';
 const app = express();
 app.use(express.static('public'));
 
-import pagesRouter from './routers/matchesRouter.js';
+import pagesRouter from './routers/pagesRouter.js';
 app.use(pagesRouter);
 
 import matchesRouter from './routers/matchesRouter.js';
