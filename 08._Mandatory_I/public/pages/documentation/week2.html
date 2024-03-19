@@ -11,11 +11,15 @@
       There are three types of scopes in JavaScript: global, local, and block.
     </p>
     <p>
-      Always use <b>'const'</b> as default.<br>
-      const is constant NOT in the value but in the assignment,
+      Always use <b>'const'</b> as default when declaring variables.
+      <br>
+      const is constant NOT in the value, but in the assignment,
       meaning that it cannot be reassigned and thus also HAS to be assigned.
     </p>
     <p>Use <b>'let'</b> when you need to reassign a variable.</p>
+    <p>
+      <b>'var'</b> is the old way of declaring variables and should be avoided.
+    </p>
 
     <h4>Advanced functions</h4>
     <p>
@@ -27,7 +31,8 @@
     </p>
     <img src="/assets/images/week2/callback-function.png"  class="img-fluid mb-3">
     <p>
-      The 'genericActionPerformer' function takes "running" as a callback and calls it with a provided name parameter.
+      The 'genericActionPerformer' function takes "running" as a callback 
+      and calls it with a provided name parameter.
     </p>
 
     <h5>package.json</h5>
@@ -58,10 +63,10 @@
       request with the path specified.
     </p>
     <p>
-      The <code>app.listen()</code> method binds and listens for connections on the specified host and port.
+      The <code>res.send()</code> method sends the HTTP response.
     </p>
     <p>
-      The <code>res.send()</code> method sends the HTTP response.
+      The <code>app.listen()</code> method binds and listens for connections on the specified host and port.
     </p>
     <h5>node_modules</h5>
     <p>
@@ -91,6 +96,7 @@
     </div>
   </div>
 </div>
+<hr>
 <div class="text-center mt-5">
   <a class="btn btn-primary" href="/week1"><- Previous week</a>
       <a class="btn btn-primary" href="/week3">Next week -></a>

@@ -6,12 +6,12 @@
   <div class="col">
     <h4>Nodemon</h4>
     <p>
-      Nodemon is a utility that will monitor for any changes in the source and
+      Nodemon is an utility that will monitor for any changes in the source and
       automatically restart the server. Good for development, but not good for
       larger applications or environments that requires lots of memory-load.
       <br />
       <code>npm install -g nodemon</code> - To install globally. <br />
-      <code>nodemon app.js</code> - To start the server.
+      <code>nodemon app.js</code> - To start the server (instead of 'node app.js')
     </p>
     <p>
       <b>nodemon.json</b> shall be added to root of project when using
@@ -19,7 +19,14 @@
       up. This is a performance optimization. <br />
       nodemon as default will NOT watch for changes in files, therefor 'ext'
       tells which extentions to listen to: <br />
-      <code>{"ext": "html,js,json,css"}</code>
+      <code>{ "ext": "html,js,json,css" }</code>
+      <p>
+        We can also tell this in the terminal when starting the server: <br />
+        <code>$ nodemon --ext html,js,json,css app.js</code> <br />
+        But it is not a good practice to do so, because it has to be done every
+        time the server is started. Therefor it's better to make the 
+        configuration file where nodemon will read the "flags".
+      </p>
     </p>
     <h4>Loop methods</h4>
     <p>forEach, map, filter, sort, find and reduce.</p>
@@ -99,6 +106,7 @@
     </div>
   </div>
 </div>
+<hr>
 <div class="text-center mt-5">
   <a class="btn btn-primary" href="/week2"><- Previous week</a>
   <a class="btn btn-primary" href="/week4">Next week -></a>
