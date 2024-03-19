@@ -35,3 +35,8 @@ const week6 = readPage("./public/pages/documentation/week6.html").toString();
 export const week6Page = renderPage(week6, {
     tabTitle: "Node.js - week6"
 });
+
+const week7 = readPage("./public/pages/documentation/week7.html").toString();
+export const week7Page = renderPage(week7, {
+    tabTitle: "Node.js - week7"
+});

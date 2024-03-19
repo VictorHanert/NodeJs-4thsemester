@@ -5,7 +5,9 @@ import { homepagePage,
     week3Page,
     week4Page,
     week5Page,
-    week6Page } from '../util/readPages.js';
+    week6Page,
+    week7Page
+ } from '../util/readPages.js';
 
 import { Router } from "express";
 
@@ -37,6 +39,9 @@ router.get("/week5", (req, res) => {
 });
 router.get("/week6", (req, res) => {
     res.send(week6Page);
+});
+router.get("/week7", (req, res) => {
+    res.send(week7Page);
 });
 
 export default router;
