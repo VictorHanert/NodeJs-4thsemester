@@ -4,8 +4,85 @@
 </div>
 <div class="row gx-5">
   <div class="col">
-    <h4>title</h4>
-    <p>text</p>
+    <h4>Client-side rendering (CSR)</h4>
+    <ul>
+      <li>
+        <b>Definition:</b> CSR is a method of rendering web pages where the HTML
+        content is small, and stuff like data fetching, template rendering, and
+        UI updates, is handled by JavaScript running in the client's web
+        browser. <br />
+        CSR allows us to make websites entirely rendered in the browser with
+        JavaScript. Instead of having a different HTML page per route, a
+        client-side rendered website creates each route dynamically directly in
+        the browser.
+      </li>
+      <li>
+        <b>Pros:</b>
+        <ul>
+          <li>Fast initial load time.</li>
+          <li>Fast navigation between pages.</li>
+          <li>
+            Better suited for highly interactive and dynamic web applications.
+          </li>
+          <li>Less complex server setup.</li>
+        </ul>
+      </li>
+    </ul>
+    <h4>Server-side rendering (SSR)</h4>
+    <ul>
+      <li>
+        <b>Definition:</b> SSR is a method of rendering web pages where the HTML
+        content is generated on the server and sent to the client. <br />
+        SSR is the traditional method of rendering web pages, where the server
+        sends the HTML content to the client, and the client's web browser
+        renders the page.
+      </li>
+      <li>
+        <b>Pros:</b>
+        <ul>
+          <li>Faster load time</li>
+          <li>Uses less resources</li>
+          <li>Good for SEO.</li>
+          <li>Good for websites with a lot of content.</li>
+          <li>
+            Especially for companys: better for solving all CORS problems.
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>Redirections</h4>
+    <p>
+      Client-side redirection is handled by the browser using JavaScript or HTML
+      meta tags. <br />
+      <b>Example: </b> <code>window.location.href = 'new_page_url';</code>
+      <br />
+      The redirection happens as soon as the browser receives the response from
+      the server, and can redirect users based on certain conditions or events.
+      <br />
+    </p>
+    <p>
+      Server-side redirection is handled by the web server before the response
+      is sent to the client, which gives good reliability and better SEO
+      performance. <br />
+      <b>Example: </b> <code>res.redirect('new_page_url');</code> <br />
+    </p>
+    <img
+      src="/assets/images/week6/server-side-redirection.png"
+      alt="server-side-redirection"
+      class="img-fluid"
+    />
+    <p>
+      In the example above, we have a simple server that listens for a GET
+      request to the /logIn route. 
+      We can test the endpoint by typing the path and query string in the
+      browser:
+      <b>/logIn?password=SesameOpenUp</b> <br />
+      If the password is incorrect, the server sends a 400 status code and a
+      message to the client. <br />
+      And if it's correct then the server redirects the user to the /loggedIn
+      route, and displays the message "You are now logged in!".
+    </p>
   </div>
 
   <div class="col-md-6">
@@ -36,7 +113,7 @@
     </div>
   </div>
 </div>
-<hr>
+<hr />
 <div class="text-center mt-5">
   <a class="btn btn-primary" href="/week5"><- Previous week</a>
   <a class="btn btn-primary" href="/week7">Next week -></a>
