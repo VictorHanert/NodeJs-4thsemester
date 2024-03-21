@@ -1,28 +1,278 @@
 <div>
-    <h1><b>Week 7</b> - Asynchronous Code</h1>
-    <hr />
+  <h1><b>Week 7</b> - Asynchronous Code & Routers</h1>
+  <hr />
+</div>
+<div class="row gx-5">
+  <div class="col">
+    <article>
+      <h4 id="linting">Linting</h4>
+      <p>
+        Linting is <b>not</b> a requirement in our Node.js semester - However,
+        <u>having clean code is</u> a requirement and linters can help with that.
+      </p>
+      <p>
+        <b>Definition</b>: A linter is a tool that can analyze code for errors,
+        stylistic issues and deviations from coding standards. It only does static
+        analysis, meaning that it doesn't run to code.<br />
+        Linters are also heavily used in companies to ensure that the code looks
+        presentable and uniforma and is therefor a good practice to have in our
+        workflow.
+      </p>
+      <h6>Types of Linters:</h6>
+      <ul>
+        <li>
+          In JavaScript, the most popular linter is <b>ESLint</b> - (The industry
+          standard). It is highly configurable and can be used to enforce a coding
+          style across a team of developers. It can also be used to catch common
+          programming errors.
+        </li>
+        <li>
+          <b>Prettier</b>: Opinionated code formatter. Can be combined with a
+          linter such as ESLint.
+        </li>
+        <li>Others: Standard, JSHint, JSLint and TSLint for TypeScript.</li>
+      </ul>
+
+      <h4 id="debugging">Debugging</h4>
+      <p>
+        Debugging is the process of finding and resolving defects or problems.
+        <br />
+        In web development, errors can occur in:
+      </p>
+      <ul>
+        <li>The browser console (client-side errors)</li>
+        <li>The terminal (server-side errors)</li>
+      </ul>
+      <h6>Steps to debug the code:</h6>
+      <ul>
+        <li>
+          <b>Reading the stack trace</b>
+          <ul>
+            <li>Understand the error message and the stack trace</li>
+            <li>Learn how to extract information from them</li>
+          </ul>
+        </li>
+        <li>
+          <b>Isolate the code</b>
+          <ul>
+            <li>Separate the functioning code from the problematic code.</li>
+            <li>
+              Begin by commenting out large sections of code to identify a working
+              baseline.
+            </li>
+            <li>Gradually uncomment sections to isolate the issue.</li>
+            <li>
+              Use <code>console.log</code> to understand the flow of the code
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>Understand the problem better</b>
+          <p>
+            <b>Explain the problem to someone else</b> - This is a common
+            technique used by programmers to understand the problem better. It is
+            the philosophy of rubber duck debugging:
+          </p>
+          <i>
+            "Many programmers have had the experience of explaining a problem to
+            someone else, possibly even to someone who knows nothing about
+            programming, and then hitting upon the solution in the process of
+            explaining the problem."
+          </i>
+          <p>
+            During this process of verbalizing the problem you should come to new
+            realizations about the problem space and what you know about it and
+            what you are unsure of. <br />
+            Instead of focusing on the solution try to figure out the following
+            questions:
+          </p>
+          <ol>
+            <li>What is your expected outcome from the code?</li>
+            <li>How does the actual outcome differ from your expectations?</li>
+            <li>Step through the code and identify discrepencies.</li>
+            <li>
+              Analyze the observed behavior. Why might the output be as it is?
+            </li>
+            <li>Explore potential adjustments to the code and apply them.</li>
+          </ol>
+        </li>
+        <li>
+          <b>Take a break if still stuck</b>
+          <p>
+            Sometimes, the best way to solve a problem is to take a break and come
+            back to it later. This can help you to see the problem from a new
+            perspective.
+          </p>
+        </li>
+      </ul>
+
+      <h5 id="debugging-tools">Debugging tools</h5>
+      <p>
+        <b>Server-side:</b> - <code>console.log</code> outputs to the terminal.
+        <br />
+        Use the interactive debugger in our IDE. After having isolated the code we
+        should have a suspicion of where the bug might occur. We now have an idea
+        of where to step through the code whiling observing variable states and
+        their changes. <br />
+        <i>
+          Note: Be aware that asynchronous behavior or scoping issues can lead to
+          unpredictable or inconsistent effects on variables, complicating the
+          debugging process.
+        </i>
+      </p>
+      <p>
+        <b>Client-side:</b> - The browser console is the primary tool for
+        debugging client-side code. <code>console.log()</code> will output to the
+        browser console.<br />
+        <b>Chrome DevTools</b> is a powerful tool that can help you debug your
+        JavaScript code. It allows you to inspect the DOM, monitor network
+        activity, and debug JavaScript code. <br />
+        Add the <b>debugger</b> keyword in the Javascript code and open DevTools. Once
+        the code reaches the keyword it will break. <br />
+        Use DevTools to set breakpoints and step through the code.
+      </p>
+      <p>
+        <b>API testing</b> - Use <b>Postman</b> to test your API endpoints. Postman is a
+        popular tool for testing APIs. It allows you to send requests to your API
+        endpoints and inspect the responses. CORS is only an issue in the browser.
+      </p>
+
+      <h4 id="async">Asynchronous code in JS</h4>
+      <p>
+        <b>Asynchronous code</b> is code that runs in the background and doesn't
+        block <u>the main thread</u>. This is important in Node.js because it allows the
+        server to handle multiple requests at the same time. <br />
+        In Node.js, we use asynchronous code to:
+        <ul>
+          <li>Browser events handlers (mouseEvent, keyEvent, etc.)</li>
+          <li>Network requests (HTTP requests, TCP, etc.)</li>
+          <li>Working with files and folders (reading/writing files, etc.)</li>
+          <li>Streams and buffers</li>
+          <li>setTimeout, setInterval</li>
+          <li>Database operations</li>
+        </ul>
+        There are two ways to work with asynchronous code in Node.js: <b>callbacks</b>
+        and <b>promises</b>. <br />
+        <b>Callbacks</b> are functions that are passed as arguments to other
+        functions. They are called when the asynchronous operation is complete.
+        <br />
+        <b>Promises</b> are objects that represent the result of an asynchronous
+        operation. They have a <code>.then</code> method that is called when the
+        operation is complete. <br />
+        <b>Async/await</b> is a modern way to work with asynchronous code in
+        JavaScript, which looks better and is easier to read than the other two
+        - "Syntactic sugar".
+      </p>
+      <h5 id="callbacks">Callbacks</h5>
+      <p>
+        Callbacks can be nested, which can lead to <b>callback hell</b>. This is
+        when you have multiple nested callbacks, which can make the code hard to
+        read and maintain. <br />
+        The pyramid of doom is a common pattern in callback hell. It is a series of
+        nested callbacks that form a pyramid shape. <br />
+        To avoid callback hell, you can use named functions or promises. <br />
+        Naming functions makes code easier to read thanks to the descriptive function names,
+        when exceptions happen you will get stacktraces that reference actual function names instead of "anonymous". And
+        allows you to move the functions and reference them by their names. <br />
+      </p>
+
+      <h5 id="promises">Promises</h5>
+      <p>
+        A <b>promise</b> is an object that represents the result of an asynchronous
+        operation. It has three states: <b>pending</b>, <b>fulfilled</b>, and
+        <b>rejected</b>. <br />
+        A promise has a <code>.then</code> method that is called when the operation
+        is complete. It takes two arguments: a <b>success callback</b> and an
+        <b>error callback</b>. <br />
+        Promises can be chained together using the <code>.then</code> method. This
+        allows you to perform multiple asynchronous operations in sequence.
+      </p>
+      <p>Promisified function that returns a promise:</p>
+      <img src="/assets/images/week7/promise.png" alt="promise" class="img-fluid"/>
+      <p>
+        In this code snippet, we have a function called <code>myPromise</code> that
+        returns a promise. The promise is created using the <code>Promise</code>
+        constructor, which takes a function as an argument. This function takes two
+        arguments: <code>resolve</code> and <code>reject</code>. <br />
+        Inside the function, we use the <code>setTimeout()</code> function to simulate
+        an asynchronous operation. After 2 seconds, we call the <code>resolve</code>
+        function with a success message. If an error occurs, we call the
+        <code>reject</code> function with an error message. <br />
+        We chain a <code>.then</code> method to the promise, which takes a
+        success callback as an argument. This callback is called when the promise is
+        fulfilled. We also chain a <code>.catch</code> method, which takes an error
+        callback as an argument and is called if the promise is rejected.
+      </p>
+
+      <h5 id="async/await">Async/await</h5>
+      <p>
+        Async/await is a modern way to work with asynchronous code in
+        JavaScript. It is syntactic sugar for promises. <br />
+        The <code>async</code> keyword is used to define an asynchronous function.
+        It returns a promise. <br />
+        The <code>await</code> keyword is used to wait for a promise to be
+        fulfilled. It can only be used inside an <code>async</code> function. <br />
+        IIFE (Immediately Invoked Function Expression) and is pronounced "iffy" - 
+        is a JavaScript function that runs as soon as it is defined. <br />
+        <img src="/assets/images/week7/IIFE.png" alt="async-await" class="img-fluid"/>
+        In this IIFE asynchronous function, we use the <code>await</code> keyword to
+        wait for the <code>myPromise</code> function to be fulfilled. We also use a
+        <code>try...catch</code> block to handle any errors that might occur.
+      </p>
+
+      <h4 id="express-router">Express Router</h4>
+      <p>
+        An <b>Express Router</b> is a middleware that can be used to group route handlers
+        together. It helps to organize the code and make it more modular. <br />
+
+        <img src="/assets/images/week7/routers.png" alt="routers" class="img-fluid"/>
+        <br />
+        In this code snippet, we create an Express Router using the <code>Router</code>
+        method. We then use the <code>router.get</code> method to define two route
+        handlers. The first route handler sends the homepage page, and the second
+        route handler sends the contact page. <br />
+        We then export the router using the <code>export default</code> statement.
+      </p>
+      <p>
+        In our app.js we can now import the router and use it as middleware. <br />
+        <code>import pagesRouter from './routers/pagesRouter.js';</code> <br />
+        And then use it as middleware: <br />
+        <code>app.use(pagesRouter);</code> <br />
+        This will make the routes defined in the router available to the app.
+      </p>
+    </article>
   </div>
-  <div class="row gx-5">
-    <div class="col">
-      <h4>title</h4>
-      <p>text</p>
-    </div>
-  
-    <div class="col-md-6">
-      <div class="border border-secondary shadow p-3 sticky-lg-top">
+
+  <div class="col-md-6">
+    <div class="sticky-lg-top">
+      <div id="toc-container" class="border border-secondary shadow p-2">
+        <h4>Table of Contents</h4>
+        <hr>
+        <ul id="toc" class="sticky-content"></ul>
+      </div>
+      <hr />
+      <div class="border border-secondary shadow p-2">
         <h4>Learning goals:</h4>
-        <hr />
-        <ul id="learning-goals">
-            <li>Can define and run scripts.</li>
-            <li>While using a linter is not a requirement, having clean code is.</li>
-            <li>Can work with promises, async/await. Understand why asynchronous code is relevant in Node.js.</li>
-            <li>Can create an Express Router by heart.</li>
+        <hr>
+        <ul class="sticky-content">
+          <li>
+            While using a linter is not a requirement, having clean code is.
+          </li>
+          <li>
+            Understand the importance of debugging and how to use the tools
+            available to you.
+          </li>
+          <li>
+            Can work with promises, async/await. Understand why asynchronous code
+            is relevant in Node.js.
+          </li>
+          <li>Can create an Express Router by heart.</li>
         </ul>
       </div>
     </div>
   </div>
-  <hr>
-  <div class="text-center mt-5">
-    <a class="btn btn-primary" href="/week6"><- Previous week</a>
-  </div>
-  
+</div>
+<hr />
+<div class="text-center mt-5">
+  <a class="btn btn-primary" href="/week6"><- Previous week</a>
+</div>

@@ -4,95 +4,104 @@
 </div>
 <div class="row gx-5">
   <div class="col">
-    <h4>Scoping</h4>
-    <p>
-      Scoping in JavaScript refers to the accessibility of variables.
-      In other words, which parts of your program can see or use it.
-      There are three types of scopes in JavaScript: global, local, and block.
-    </p>
-    <p>
-      Always use <b>'const'</b> as default when declaring variables.
-      <br>
-      const is constant NOT in the value, but in the assignment,
-      meaning that it cannot be reassigned and thus also HAS to be assigned.
-    </p>
-    <p>Use <b>'let'</b> when you need to reassign a variable.</p>
-    <p>
-      <b>'var'</b> is the old way of declaring variables and should be avoided.
-    </p>
+    <article>
+      <h4 id="scoping">Scoping</h4>
+      <p>
+        Scoping in JavaScript refers to the accessibility of variables.
+        In other words, which parts of your program can see or use it.
+        There are three types of scopes in JavaScript: global, local, and block.
+      </p>
+      <p>
+        Always use <b>'const'</b> as default when declaring variables.
+        <br>
+        const is constant NOT in the value, but in the assignment,
+        meaning that it cannot be reassigned and thus also HAS to be assigned.
+      </p>
+      <p>Use <b>'let'</b> when you need to reassign a variable.</p>
+      <p>
+        <b>'var'</b> is the old way of declaring variables and should be avoided.
+      </p>
 
-    <h4>Advanced functions</h4>
-    <p>
-      Functions can be assigned to variables, passed as arguments, and returned from other functions.
-    </p>
-    <p>
-      Callback functions are functions that are passed as arguments to other functions.
-      '<b>() => {}</b>' - Arrow functions is a short way to write functions in JavaScript.
-    </p>
-    <img src="/assets/images/week2/callback-function.png"  class="img-fluid mb-3">
-    <p>
-      The 'genericActionPerformer' function takes "running" as a callback 
-      and calls it with a provided name parameter.
-    </p>
+      <h4 id="advanced-functions">Advanced functions</h4>
+      <p>
+        Functions can be assigned to variables, passed as arguments, and returned from other functions.
+      </p>
+      <p>
+        Callback functions are functions that are passed as arguments to other functions.
+        '<b>() => {}</b>' - Arrow functions is a short way to write functions in JavaScript.
+      </p>
+      <img src="/assets/images/week2/callback-function.png"  class="img-fluid mb-3">
+      <p>
+        The 'genericActionPerformer' function takes "running" as a callback 
+        and calls it with a provided name parameter.
+      </p>
 
-    <h5>package.json</h5>
-    <p>
-      The package.json file is the heart of a Node.js project.
-      It contains dependencies, metadata about the project, such as the name, version, description, and other details.
-    </p>
-    <p>
-      To create a package.json file, you can run <code>npm init</code> in the terminal.
-    <ol>
-      <li>Then you will be prompted to provide various information about your project, like package name, version,
-        description, author, and license. You can fill in these details or just press 'Enter' to accept <b>the default
-          values.</b></li>
-      <li>After accepting the values for each prompt, <b>npm</b> will display a summary of the information you provided.
-        Type "yes" and press 'Enter' to generate the <b>package.json file</b>.</li>
-      <li>The package.json file will be in the project directory that contains the metadata and configuration for your
-        Node.js project.</li>
-    </ol>
-    </p>
+      <h5 id="package.json">package.json</h5>
+      <p>
+        The package.json file is the heart of a Node.js project.
+        It contains dependencies, metadata about the project, such as the name, version, description, and other details.
+      </p>
+      <p>
+        To create a package.json file, you can run <code>npm init</code> in the terminal.
+      <ol>
+        <li>Then you will be prompted to provide various information about your project, like package name, version,
+          description, author, and license. You can fill in these details or just press 'Enter' to accept <b>the default
+            values.</b></li>
+        <li>After accepting the values for each prompt, <b>npm</b> will display a summary of the information you provided.
+          Type "yes" and press 'Enter' to generate the <b>package.json file</b>.</li>
+        <li>The package.json file will be in the project directory that contains the metadata and configuration for your
+          Node.js project.</li>
+      </ol>
+      </p>
 
-    <h5>Express server</h5>
-    <p>
-      To create a server instance with Express, you can use the following code:
-    </p>
-    <img src="/assets/images/week2/express-server.png" class="img-fluid mb-3">
-    <p>
-      The <code>app.get()</code> method specifies a callback function that will be invoked whenever there is an HTTP GET
-      request with the path specified.
-    </p>
-    <p>
-      The <code>res.send()</code> method sends the HTTP response.
-    </p>
-    <p>
-      The <code>app.listen()</code> method binds and listens for connections on the specified host and port.
-    </p>
-    <h5>node_modules</h5>
-    <p>
-      The node_modules directory is where npm installs packages.
-      It is a subdirectory of the project directory where the package.json file is located.
-    </p>
-    <p>
-      The node_modules directory is not committed to the version control system,
-      and it is not deployed to the production environment.
-    </p>
-
+      <h5 id="express">Express server</h5>
+      <p>
+        To create a server instance with Express, you can use the following code:
+      </p>
+      <img src="/assets/images/week2/express-server.png" class="img-fluid mb-3">
+      <p>
+        The <code>app.get()</code> method specifies a callback function that will be invoked whenever there is an HTTP GET
+        request with the path specified.
+      </p>
+      <p>
+        The <code>res.send()</code> method sends the HTTP response.
+      </p>
+      <p>
+        The <code>app.listen()</code> method binds and listens for connections on the specified host and port.
+      </p>
+      <h5 id="node_modules">node_modules</h5>
+      <p>
+        The node_modules directory is where npm installs packages.
+        It is a subdirectory of the project directory where the package.json file is located.
+      </p>
+      <p>
+        The node_modules directory is not committed to the version control system,
+        and it is not deployed to the production environment.
+      </p>
+    </article>
   </div>
   <div class="col-md-6">
-    <div class="border border-secondary shadow p-3 sticky-lg-top">
-      <h4>Learning goals:</h4>
-      <hr>
-      <ul id="learning-goals">
-        <li>Understand scoping in Javascript and know to always use const if you can get away with it otherwise let.
-        </li>
-        <li>Understand advanced things about functions in Javascript.</li>
-        <li>Can write callback functions with different syntax.</li>
-        <li>Understands package.json and can set it up by hand.</li>
-        <li>Can create a server instance with Express from memory.</li>
-        <li>Understands how to send data with GET requests over HTTP and knows how to do it in Express.</li>
-        <li>Understands node_modules.</li>
-      </ul>
+    <div class="sticky-lg-top">
+      <div id="toc-container" class="border border-secondary shadow p-2">
+        <h4>Table of Contents</h4>
+        <hr>
+        <ul id="toc" class="sticky-content"></ul>
+      </div>
+      <hr />
+      <div class="border border-secondary shadow p-2">
+        <h4>Learning goals:</h4>
+        <hr>
+        <ul id="learning-goals">
+          <li>Understand scoping in Javascript and know to always use const if you can get away with it otherwise let.
+          </li>
+          <li>Understand advanced things about functions in Javascript.</li>
+          <li>Can write callback functions with different syntax.</li>
+          <li>Understands package.json and can set it up by hand.</li>
+          <li>Can create a server instance with Express from memory.</li>
+          <li>Understands how to send data with GET requests over HTTP and knows how to do it in Express.</li>
+          <li>Understands node_modules.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

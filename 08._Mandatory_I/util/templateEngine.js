@@ -11,5 +11,5 @@ export function renderPage(page, config={}) {
     return header.replace("$TAB_TITLE$", config.tabTitle ?? "Node.js")
                 .replace("$CSS_LINKS$", config.CSSLinks ?? "")
      + page 
-     + footer;
+     + footer.replace("$JS_SCRIPTS$", config.JSScripts ?? "");
 }

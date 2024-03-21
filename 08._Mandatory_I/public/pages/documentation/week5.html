@@ -4,114 +4,124 @@
 </div>
 <div class="row gx-5">
   <div class="col">
-    <h4>Import and export</h4>
-    <p>
-      Import and export are two ways to include a module in another module. The
-      import statement can be used to import functions, objects, or primitive
-      values that have been exported from an external module.
-    </p>
-    <p>
-      The export statement is used when creating JavaScript modules to export
-      functions, objects, or primitive values from the module so they can be
-      used by other files with the import statement.<br />
-      There are two types of exports: <b>export default</b> and <b>export</b>.
-      The <b>export default</b> is used to export a single value or a function
-      from a module. The <b>export</b> statement is used to export multiple
-      values or functions from a module.
-    </p>
-    <p>
-      In HTML you can use the <code>&lt;link&gt;</code> tag to import a CSS file
-      and the <code>&lt;script&gt;</code> tag to import a JavaScript file. The
-      script tag can also be used to import a module.
-      <code>&lt;script type="module" src="module.js"&gt;&lt;/script&gt;</code>
-      <br />
-      This tells the browser that the linked JavaScript file (<b>module.js</b>
-      in this case), should be treated as a module. Using modules helps organize
-      and modularize your JavaScript code, making it easier to manage and reuse
-      across different parts of your application.
-    </p>
-    <p>
-      In Node.js you can use the <b>require()</b> function to import a module,
-      which is the CommonJS way of importing modules. When importing express for
-      example, we could write: <br />
-      <code>const express = require('express');</code> <br />
-      The <b>require()</b> function returns the module.exports object, which
-      contains all the exports from the module that is being required.
-      <br />
-      We can also import the express library using the ES6 way of importing
-      modules: <br />
-      <code>import express from 'express';</code> <br />
-      It is the recommended way to import modules in modern JavaScript.
-    </p>
+    <article>
+      <h4 id="import-export">Import and export</h4>
+      <p>
+        Import and export are two ways to include a module in another module. The
+        import statement can be used to import functions, objects, or primitive
+        values that have been exported from an external module.
+      </p>
+      <p>
+        The export statement is used when creating JavaScript modules to export
+        functions, objects, or primitive values from the module so they can be
+        used by other files with the import statement.<br />
+        There are two types of exports: <b>export default</b> and <b>export</b>.
+        The <b>export default</b> is used to export a single value or a function
+        from a module. The <b>export</b> statement is used to export multiple
+        values or functions from a module.
+      </p>
+      <p>
+        In HTML you can use the <code>&lt;link&gt;</code> tag to import a CSS file
+        and the <code>&lt;script&gt;</code> tag to import a JavaScript file. The
+        script tag can also be used to import a module.
+        <code>&lt;script type="module" src="module.js"&gt;&lt;/script&gt;</code>
+        <br />
+        This tells the browser that the linked JavaScript file (<b>module.js</b>
+        in this case), should be treated as a module. Using modules helps organize
+        and modularize your JavaScript code, making it easier to manage and reuse
+        across different parts of your application.
+      </p>
+      <p>
+        In Node.js you can use the <b>require()</b> function to import a module,
+        which is the CommonJS way of importing modules. When importing express for
+        example, we could write: <br />
+        <code>const express = require('express');</code> <br />
+        The <b>require()</b> function returns the module.exports object, which
+        contains all the exports from the module that is being required.
+        <br />
+        We can also import the express library using the ES6 way of importing
+        modules: <br />
+        <code>import express from 'express';</code> <br />
+        It is the recommended way to import modules in modern JavaScript.
+      </p>
 
-    <h4>Serving static files and security needs</h4>
-    <p>
-      The code <code>app.use(express.static('public'));</code> is used in
-      Node.js applications to serve static files such as HTML, CSS and images.
-      <br /><b>app</b> refers to an instance of the Express application.
-      <br /><b>express.static()</b> is a built-in middleware function in
-      Express. It serves static files and is based on the serve-static
-      middleware module. <br />
-      <b>'public'</b> is the directory from which to serve static assets.
-      <br />So, when a request is made to your Express server for a static file,
-      Express will look for that file in the "public" directory and serve it (if
-      it exists).
-    </p>
-    <h5>Security</h5>
-    <p>
-      When serving static files, it is important to consider security when
-      publishing the application. If you serve files from a directory that is
-      accessible to the public, it is important to be careful not to serve files
-      that contain passwords, API keys, or other sensitive data.<br />
-      We can prevent it by removing sensitive files from the public directory,
-      using .gitignore or by using environment variables to store sensitive
-      data.
-    </p>
-    <h4>Frontend structure</h4>
-    <p>
-      The frontend structure is the way we organize the assets, pages and
-      components in our frontend, which are the static files that are located in
-      the public directory. <br />
-      A good structure makes the code more readable and maintainable. <br />
-      - <b>The assets</b> are the files that are used in the frontend, (images,
-      CSS, and JS files). <br />
-      - <b>The pages</b> are the HTML files that are served to the user. <br />
-      - <b>Components</b> are reusable parts of the frontend, such as a header,
-      footer, or navigation bar.
-    </p>
-    <img
-      src="/assets/images/week5/frontend-structure.png"
-      alt="Frontend structure"
-      class="img-fluid w-50"
-    />
-    <p>
-      This is a good structure with separate directories for assets, pages and
-      components. Each directory contains subdirectories for example images,
-      CSS, and JavaScript files in the assets. <br />
-      The HTML-pages should be categorized in a directory for each category, for
-      example "homepage", "contact" or whatever the website contains. <br />
-      And inside, for example, the "homepage" directory, there should be a file
-      for the homepage but there could also be CSS, JavaScript and images that
-      are <b>ONLY</b> used on the homepage.
-    </p>
+      <h4 id="static-files">Serving static files and security needs</h4>
+      <p>
+        The code <code>app.use(express.static('public'));</code> is used in
+        Node.js applications to serve static files such as HTML, CSS and images.
+        <br /><b>app</b> refers to an instance of the Express application.
+        <br /><b>express.static()</b> is a built-in middleware function in
+        Express. It serves static files and is based on the serve-static
+        middleware module. <br />
+        <b>'public'</b> is the directory from which to serve static assets.
+        <br />So, when a request is made to your Express server for a static file,
+        Express will look for that file in the "public" directory and serve it (if
+        it exists).
+      </p>
+      <h5 id="security">Security</h5>
+      <p>
+        When serving static files, it is important to consider security when
+        publishing the application. If you serve files from a directory that is
+        accessible to the public, it is important to be careful not to serve files
+        that contain passwords, API keys, or other sensitive data.<br />
+        We can prevent it by removing sensitive files from the public directory,
+        using .gitignore or by using environment variables to store sensitive
+        data.
+      </p>
+      <h4 id="frontend-structure">Frontend structure</h4>
+      <p>
+        The frontend structure is the way we organize the assets, pages and
+        components in our frontend, which are the static files that are located in
+        the public directory. <br />
+        A good structure makes the code more readable and maintainable. <br />
+        - <b>The assets</b> are the files that are used in the frontend, (images,
+        CSS, and JS files). <br />
+        - <b>The pages</b> are the HTML files that are served to the user. <br />
+        - <b>Components</b> are reusable parts of the frontend, such as a header,
+        footer, or navigation bar.
+      </p>
+      <img
+        src="/assets/images/week5/frontend-structure.png"
+        alt="Frontend structure"
+        class="img-fluid w-50"
+      />
+      <p>
+        This is a good structure with separate directories for assets, pages and
+        components. Each directory contains subdirectories for example images,
+        CSS, and JavaScript files in the assets. <br />
+        The HTML-pages should be categorized in a directory for each category, for
+        example "homepage", "contact" or whatever the website contains. <br />
+        And inside, for example, the "homepage" directory, there should be a file
+        for the homepage but there could also be CSS, JavaScript and images that
+        are <b>ONLY</b> used on the homepage.
+      </p>
+    </article>
   </div>
 
   <div class="col-md-6">
-    <div class="border border-secondary shadow p-3 sticky-lg-top">
-      <h4>Learning goals:</h4>
+    <div class="sticky-lg-top">
+      <div id="toc-container" class="border border-secondary shadow p-2">
+        <h4>Table of Contents</h4>
+        <hr>
+        <ul id="toc" class="sticky-content"></ul>
+      </div>
       <hr />
-      <ul id="learning-goals">
-        <li>Can work with both types of import/export in HTML.</li>
-        <li>Can import/export in both ways in Node.js.</li>
-        <li>
-          Understands the security need for serving static files and can do it
-          in Express.
-        </li>
-        <li>
-          Can argue for a better way to structure the frontend (assets, pages)
-          and how to structure HTML.
-        </li>
-      </ul>
+      <div class="border border-secondary shadow p-2">
+        <h4>Learning goals:</h4>
+        <hr />
+        <ul id="learning-goals">
+          <li>Can work with both types of import/export in HTML.</li>
+          <li>Can import/export in both ways in Node.js.</li>
+          <li>
+            Understands the security need for serving static files and can do it
+            in Express.
+          </li>
+          <li>
+            Can argue for a better way to structure the frontend (assets, pages)
+            and how to structure HTML.
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

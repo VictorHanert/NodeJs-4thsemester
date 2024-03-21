@@ -26,12 +26,6 @@ main {
     background-color: #e8f3ff;
 }
 
-hr {
-    border: none; /* Remove the border */
-    height: 2px; /* Set the height of the line */
-    background-color: #c7254e; /* Set the color of the line */
-}
-
 .img-fluid {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 10px 0;
@@ -45,7 +39,7 @@ code {
     border: 1px solid #233565;
 }
 
-#learning-goals li {
+.sticky-content li {
     padding-bottom: 10px;
     list-style: none;
     margin-left: 1em;
@@ -54,7 +48,7 @@ code {
 }
 
 /* Style the custom bullet point */
-#learning-goals li::before {
+.sticky-content li::before {
     color: #c7254e;
     /* Symbol for the bullet point */
     content: "\2022";

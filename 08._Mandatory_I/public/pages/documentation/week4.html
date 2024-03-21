@@ -4,128 +4,138 @@
 </div>
 <div class="row gx-5">
   <div class="col">
-    <h4>PUT vs PATCH</h4>
-    <p>
-      PUT and PATCH are two different HTTP methods that are used to update a
-      resource.
-      <br />Use <b>PUT</b> - If you want to update a resource <u>completely</u>.
-      <br />Use <b>PATCH</b> - If you want to update <u>only a part</u> of a
-      resource.
-    </p>
+    <article>
+      <h4 id="put-vs-patch">PUT vs PATCH</h4>
+      <p>
+        PUT and PATCH are two different HTTP methods that are used to update a
+        resource.
+        <br />Use <b>PUT</b> - If you want to update a resource <u>completely</u>.
+        <br />Use <b>PATCH</b> - If you want to update <u>only a part</u> of a
+        resource.
+      </p>
 
-    <img
-      src="/assets/images/week4/patch-request.png"
-      alt="PATCH"
-      class="img-fluid"
-    />
-    <p>
-      Here is the PATCH method used to update the drink by its id. <br />
-      If the drink is found, it updates the drink with the data provided in the
-      request body. It creates a new object 'drinkToUpdate' by merging the
-      original drink data with the data sent in the request body. Then, it
-      updates the drinks array with the updated drink and sends back the updated
-      drink data as the response.
-    </p>
-    <p></p>
-    <h5>Delete request</h5>
-    <p>The DELETE method is used to delete a resource.</p>
-    <img
-      src="/assets/images/week4/delete-request.png"
-      alt="DELETE"
-      class="img-fluid"
-    />
-    <p>
-      The request URL is "/drinks/:id" where :id is a route parameter that holds
-      the id of the drink to be deleted. The id is extracted from the request
-      parameters and converted to a number. The <code>findIndex()</code> method
-      is used to find the index of the drink in the drinks array. If the drink
-      is not found, a 404 status code is sent with an error message. If the
-      drink is found, the <code>splice()</code> method is used to remove the
-      drink from the drinks array. The updated drinks array is sent as the
-      response.
-    </p>
-
-    <h4>Time and Date in JS</h4>
-    <p>
-      The are different ways to get the time and date in JavaScript:
       <img
-        src="/assets/images/week4/date-example.png"
-        alt="Date"
+        src="/assets/images/week4/patch-request.png"
+        alt="PATCH"
         class="img-fluid"
       />
-    </p>
-    <p>
-      When using the local timezone is not stored in the date object, but is
-      determined by the host environment (user's device).
-    </p>
-    <p>
-      The Date object is used to work with dates and times. Date objects are
-      created with the <code>new Date()</code> constructor:
+      <p>
+        Here is the PATCH method used to update the drink by its id. <br />
+        If the drink is found, it updates the drink with the data provided in the
+        request body. It creates a new object 'drinkToUpdate' by merging the
+        original drink data with the data sent in the request body. Then, it
+        updates the drinks array with the updated drink and sends back the updated
+        drink data as the response.
+      </p>
+      <p></p>
+      <h5 id="delete">Delete request</h5>
+      <p>The DELETE method is used to delete a resource.</p>
       <img
-        src="/assets/images/week4/getDays-example.png"
-        alt="Date"
+        src="/assets/images/week4/delete-request.png"
+        alt="DELETE"
         class="img-fluid"
       />
-    </p>
-    <p>
-      We can use the <code>getDay()</code> method to get the day of the week.
-      The week starts with Sunday as 0 and ends with Saturday as 6, which can be
-      confusing when we want to display the day of the week to the user.
-    </p>
+      <p>
+        The request URL is "/drinks/:id" where :id is a route parameter that holds
+        the id of the drink to be deleted. The id is extracted from the request
+        parameters and converted to a number. The <code>findIndex()</code> method
+        is used to find the index of the drink in the drinks array. If the drink
+        is not found, a 404 status code is sent with an error message. If the
+        drink is found, the <code>splice()</code> method is used to remove the
+        drink from the drinks array. The updated drinks array is sent as the
+        response.
+      </p>
 
-    <h4>Fetch</h4>
-    <p>Fetch is used to make requests to a server.</p>
-    <img src="/assets/images/week4/fetch.png" alt="Fetch" class="img-fluid" />
+      <h4 id="time-date">Time and Date in JS</h4>
+      <p>
+        The are different ways to get the time and date in JavaScript:
+        <img
+          src="/assets/images/week4/date-example.png"
+          alt="Date"
+          class="img-fluid"
+        />
+      </p>
+      <p>
+        When using the local timezone is not stored in the date object, but is
+        determined by the host environment (user's device).
+      </p>
+      <p>
+        The Date object is used to work with dates and times. Date objects are
+        created with the <code>new Date()</code> constructor:
+        <img
+          src="/assets/images/week4/getDays-example.png"
+          alt="Date"
+          class="img-fluid"
+        />
+      </p>
+      <p>
+        We can use the <code>getDay()</code> method to get the day of the week.
+        The week starts with Sunday as 0 and ends with Saturday as 6, which can be
+        confusing when we want to display the day of the week to the user.
+      </p>
 
-    <p>
-      The fetch method is used to make a request to the server. The first
-      argument is the URL of the server. The second argument is an object that
-      contains the request method, headers, and body. The request method is GET,
-      which is the default method. The headers are used to specify the content
-      type of the request body. The body is used to send data to the server. The
-      fetch method returns a promise that resolves to the response from the
-      server. The response is converted to JSON using the json method. The
-      result is used to update the greetingH2 element with the data from the
-      server.
-    </p>
+      <h4 id="fetch">Fetch</h4>
+      <p>Fetch is used to make requests to a server.</p>
+      <img src="/assets/images/week4/fetch.png" alt="Fetch" class="img-fluid" />
 
-    <p>
-      <b>Fetching in the client vs. fetching in the backend.</b>
-      <br />- In the client, we use the fetch method to make requests to the
-      server, where we need to dynamically load data without refreshing the
-      entire page. <br />- In the server, we use the fetch method to make
-      requests to other servers, to get external data sources, such as APIs or
-      databases.
-    </p>
+      <p>
+        The fetch method is used to make a request to the server. The first
+        argument is the URL of the server. The second argument is an object that
+        contains the request method, headers, and body. The request method is GET,
+        which is the default method. The headers are used to specify the content
+        type of the request body. The body is used to send data to the server. The
+        fetch method returns a promise that resolves to the response from the
+        server. The response is converted to JSON using the json method. The
+        result is used to update the greetingH2 element with the data from the
+        server.
+      </p>
 
-    <h4>Vercel and how to deploy to a server with express</h4>
-    <p>
-      Vercel's frontend cloud gives developers the frameworks, workflows, and
-      infrastructure to build a faster, more personalized web.
-    </p>
-    <p>
-      To implement Vercel, we simply put a <code>vercel.json</code> file in the
-      root of the project. In the file, we specify the version, the source file,
-      and the destination file. Now when pushing to github and deploying the
-      project, the server can be deployed to Vercel.
-    </p>
-    <img
-      src="/assets/images/week4/vercel-json.png"
-      alt="Vercel"
-      class="img-fluid"
-    />
+      <p>
+        <b>Fetching in the client vs. fetching in the backend.</b>
+        <br />- In the client, we use the fetch method to make requests to the
+        server, where we need to dynamically load data without refreshing the
+        entire page. <br />- In the server, we use the fetch method to make
+        requests to other servers, to get external data sources, such as APIs or
+        databases.
+      </p>
+
+      <h4 id="vercel">Vercel and how to deploy to a server with express</h4>
+      <p>
+        Vercel's frontend cloud gives developers the frameworks, workflows, and
+        infrastructure to build a faster, more personalized web.
+      </p>
+      <p>
+        To implement Vercel, we simply put a <code>vercel.json</code> file in the
+        root of the project. In the file, we specify the version, the source file,
+        and the destination file. Now when pushing to github and deploying the
+        project, the server can be deployed to Vercel.
+      </p>
+      <img
+        src="/assets/images/week4/vercel-json.png"
+        alt="Vercel"
+        class="img-fluid"
+      />
+    </article>
   </div>
 
   <div class="col-md-6">
-    <div class="border border-secondary shadow p-3 sticky-lg-top">
-      <h4>Learning goals:</h4>
+    <div class="sticky-lg-top">
+      <div id="toc-container" class="border border-secondary shadow p-2">
+        <h4>Table of Contents</h4>
+        <hr>
+        <ul id="toc" class="sticky-content"></ul>
+      </div>
       <hr />
-      <ul id="learning-goals">
-        <li>Can create a full CRUDable REST API that follows conventions.</li>
-        <li>Can get the Date in Javascript.</li>
-        <li>Can write a fetch request without hesitation.</li>
-        <li>Can deploy a server to Vercel.</li>
-      </ul>
+      <div class="border border-secondary shadow p-2">
+        <h4>Learning goals:</h4>
+        <hr />
+        <ul id="learning-goals">
+          <li>Can create a full CRUDable REST API that follows conventions.</li>
+          <li>Can get the Date in Javascript.</li>
+          <li>Can write a fetch request without hesitation.</li>
+          <li>Can deploy a server to Vercel.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

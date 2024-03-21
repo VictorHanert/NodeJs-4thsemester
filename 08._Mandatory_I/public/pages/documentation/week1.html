@@ -4,114 +4,125 @@
 </div>
 <div class="row gx-5">
   <div class="col">
-    <h4>How to push code changes from terminal:</h4>
-    <ul>
-      <li>git add -A</li>
-      <li>git commit -m "message"</li>
-      <li>git push</li>
-    </ul>
-    <h4>What is node.js?</h4>
-    <p>
-      A cross-platform, to have javascript both for frontend and backend, so
-      that developers only need to know one language. Used for many different
-      kinds of applications.
-    </p>
-    <h5>npm</h5>
-    <p>
-      Node Package Manager, a package manager for JavaScript programming
-      language. It is the default package manager for the JavaScript runtime
-      environment Node.js.
-      <br />
-      <code>npm -i express</code> - installs the express package.
-    </p>
-    <h5>Express</h5>
-    <p>
-      Express, which we use this semester, is a minimal and flexible Node.js web
-      application framework that provides a robust set of features for web and
-      mobile applications.
-    </p>
-    <h4>Datatypes in JavaScript</h4>
-    <p>JavaScript has 7 data types:</p>
-    <ul>
-      <li>Number</li>
-      <li>String</li>
-      <li>Boolean</li>
-      <li>Object</li>
-      <li>Undefined</li>
-      <li>Null</li>
-      <li>Symbol</li>
-    </ul>
-    <p>
-      <b>typeof</b> operator can be used to find the data type of a JavaScript
-      variable.
-    </p>
-    <p>
-      <b>Example:</b> <br />
-      <code>console.log(typeof "hello");</code> - This will output "string".
-    </p>
-
-    <h4>Type Coercion</h4>
-    <p>
-      JavaScript is a loosely typed language, which means that it can convert a
-      variable from one type to another automatically.
-    </p>
-    <p>
-      <b>Example:</b> <br />
-      <code>console.log(1 + "2");</code> - This will output "12" because the
-      number 1 is coerced into a string.
-    </p>
-    <p>
-      To avoid type coersion, use:<br />
-      <b>===</b> instead of <b>==</b>
-      <br />
-      <b>!==</b> instead of <b>!=</b> <br />when comparing values and types.
-    </p>
-    <p>
-      Also use <b>explicit type conversion</b> when needed. <br />
-      Convert values explicitly using functions like: parseInt(), parseFloat(),
-      Number(), String(), or Boolean(). It also makes the code more readable.
-    </p>
-    <p>
-      Declare variables with their intended data types explicitly. This helps
-      prevent unexpected type coercion.
-    </p>
-    <h5>Strings</h5>
-    <b>Different ways of definings strings:</b>
-    <img src="/assets/images/week1/defining-strings.png" width="100%" />
-    <p>
-      <b>String methods:</b> <br />
-      <code>toUpperCase()</code> - converts a string to uppercase letters.
-      <br />
-      <code>toLowerCase()</code> - converts a string to lowercase letters.
-      <br />
-      <code>trim()</code> - removes whitespace from both ends of a string.
-      <br />
-      <code>split()</code> - splits a string into an array of substrings.
-    </p>
-
-    <h4 class="mt-5">Designing a REST API</h4>
-    <p>A properly named resource makes an API simple to use and intuitive.</p>
-    <p>
-      The 3 REST conventions: <br />1. Using the right HTTP verbs <br />2.
-      Ordering your URL correctly <br />3. Naming (noun, plural) that maps to
-      collections in your system
-    </p>
-    <img src="/assets/images/week1/rest-api-design.png" width="100%" />
-  </div>
-  <div class="col-md-6">
-    <div class="border border-secondary shadow p-3 sticky-top">
-      <h4>Learning goals:</h4>
-      <hr />
-      <ul id="learning-goals">
-        <li>Can work with Git in the terminal.</li>
-        <li>Can explain what Node.js is and how to run files with it.</li>
-        <li>Understand and work with data types in Javascript.</li>
-        <li>
-          Knows the existing data types in Javascript and can work with them.
-        </li>
-        <li>Understands type coercion and strategies to avoid it.</li>
-        <li>Can design a REST API.</li>
+    <article>
+      <h4 id="push-code">How to push code changes from terminal:</h4>
+      <ul>
+        <li>git add -A</li>
+        <li>git commit -m "message"</li>
+        <li>git push</li>
       </ul>
+      <h4 id="node.js">What is node.js?</h4>
+      <p>
+        A cross-platform, to have javascript both for frontend and backend, so
+        that developers only need to know one language. Used for many different
+        kinds of applications.
+      </p>
+      <h5 id="npm">npm</h5>
+      <p>
+        Node Package Manager, a package manager for JavaScript programming
+        language. It is the default package manager for the JavaScript runtime
+        environment Node.js.
+        <br />
+        <code>npm -i express</code> - installs the express package.
+      </p>
+      <h5 id="express">Express</h5>
+      <p>
+        Express, which we use this semester, is a minimal and flexible Node.js web
+        application framework that provides a robust set of features for web and
+        mobile applications.
+      </p>
+      <h4 id="datatypes">Datatypes in JavaScript</h4>
+      <p>JavaScript has 7 data types:</p>
+      <ul>
+        <li>Number</li>
+        <li>String</li>
+        <li>Boolean</li>
+        <li>Object</li>
+        <li>Undefined</li>
+        <li>Null</li>
+        <li>Symbol</li>
+      </ul>
+      <p>
+        <b>typeof</b> operator can be used to find the data type of a JavaScript
+        variable.
+      </p>
+      <p>
+        <b>Example:</b> <br />
+        <code>console.log(typeof "hello");</code> - This will output "string".
+      </p>
+
+      <h4 id="type-coercion">Type Coercion</h4>
+      <p>
+        JavaScript is a loosely typed language, which means that it can convert a
+        variable from one type to another automatically.
+      </p>
+      <p>
+        <b>Example:</b> <br />
+        <code>console.log(1 + "2");</code> - This will output "12" because the
+        number 1 is coerced into a string.
+      </p>
+      <p>
+        To avoid type coersion, use:<br />
+        <b>===</b> instead of <b>==</b>
+        <br />
+        <b>!==</b> instead of <b>!=</b> <br />when comparing values and types.
+      </p>
+      <p>
+        Also use <b>explicit type conversion</b> when needed. <br />
+        Convert values explicitly using functions like: parseInt(), parseFloat(),
+        Number(), String(), or Boolean(). It also makes the code more readable.
+      </p>
+      <p>
+        Declare variables with their intended data types explicitly. This helps
+        prevent unexpected type coercion.
+      </p>
+      <h5 id="strings">Strings</h5>
+      <b>Different ways of definings strings:</b>
+      <img src="/assets/images/week1/defining-strings.png" alt="defining-strings" class="img-fluid"/>
+      <p>
+        <b>String methods:</b> <br />
+        <code>toUpperCase()</code> - converts a string to uppercase letters.
+        <br />
+        <code>toLowerCase()</code> - converts a string to lowercase letters.
+        <br />
+        <code>trim()</code> - removes whitespace from both ends of a string.
+        <br />
+        <code>split()</code> - splits a string into an array of substrings.
+      </p>
+
+      <h4 id="rest-api">Designing a REST API</h4>
+      <p>A properly named resource makes an API simple to use and intuitive.</p>
+      <p>
+        The 3 REST conventions: <br />1. Using the right HTTP verbs <br />2.
+        Ordering your URL correctly <br />3. Naming (noun, plural) that maps to
+        collections in your system
+      </p>
+      <img src="/assets/images/week1/rest-api-design.png" alt="rest-api" class="img-fluid"/>
+    </article>
+  </div>
+
+  <div class="col-md-6">
+    <div class="sticky-lg-top">
+      <div id="toc-container" class="border border-secondary shadow p-2">
+        <h4>Table of Contents</h4>
+        <hr>
+        <ul id="toc" class="sticky-content"></ul>
+      </div>
+      <hr />
+      <div class="border border-secondary shadow p-2">
+        <h4>Learning goals:</h4>
+        <hr />
+        <ul id="learning-goals">
+          <li>Can work with Git in the terminal.</li>
+          <li>Can explain what Node.js is and how to run files with it.</li>
+          <li>Understand and work with data types in Javascript.</li>
+          <li>
+            Knows the existing data types in Javascript and can work with them.
+          </li>
+          <li>Understands type coercion and strategies to avoid it.</li>
+          <li>Can design a REST API.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

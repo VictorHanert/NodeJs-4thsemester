@@ -4,105 +4,115 @@
 </div>
 <div class="row gx-5">
   <div class="col">
-    <h4>Nodemon</h4>
-    <p>
-      Nodemon is an utility that will monitor for any changes in the source and
-      automatically restart the server. Good for development, but not good for
-      larger applications or environments that requires lots of memory-load.
-      <br />
-      <code>npm install -g nodemon</code> - To install globally. <br />
-      <code>nodemon app.js</code> - To start the server (instead of 'node app.js')
-    </p>
-    <p>
-      <b>nodemon.json</b> shall be added to root of project when using
-      <b>SSR</b>, because of only loading the server one time when starting it
-      up. This is a performance optimization. <br />
-      nodemon as default will NOT watch for changes in files, therefor 'ext'
-      tells which extentions to listen to: <br />
-      <code>{ "ext": "html,js,json,css" }</code>
+    <article>
+      <h4 id="nodemon">Nodemon</h4>
       <p>
-        We can also tell this in the terminal when starting the server: <br />
-        <code>$ nodemon --ext html,js,json,css app.js</code> <br />
-        But it is not a good practice to do so, because it has to be done every
-        time the server is started. Therefor it's better to make the 
-        configuration file where nodemon will read the "flags".
+        Nodemon is an utility that will monitor for any changes in the source and
+        automatically restart the server. Good for development, but not good for
+        larger applications or environments that requires lots of memory-load.
+        <br />
+        <code>npm install -g nodemon</code> - To install globally. <br />
+        <code>nodemon app.js</code> - To start the server (instead of 'node app.js')
       </p>
-    </p>
-    <h4>Loop methods</h4>
-    <p>forEach, map, filter, sort, find and reduce.</p>
-    <p>
-      Using these loop methods in a functional manner reduces the risk of
-      errors, confusion, and unintended side effects. It also makes the code
-      shorter and clearer<br />
-      for-loops are ONLY for finger counting (counting to a number).
-    </p>
-    <h4>Anatomy of an URL</h4>
-    <img
-      src="/assets/images/week3/anatomy-of-an-URL.png"
-      alt="URL"
-      class="img-fluid mb-3"
-    />
-    <h4>POST requests</h4>
-    <p>
-      POST requests in Express are handled with the
-      <code>app.post()</code> method.
-    </p>
-    <img
-      src="/assets/images/week3/post-request.png"
-      alt="POST request"
-      class="img-fluid mb-3"
-    />
-    <h4>Body parsing</h4>
-    <p>
-      When a POST request is sent to the server, the server needs to parse the
-      body of the request to get the data.
-    </p>
-    <p>If the data is JSON the server needs to parse it as JSON.</p>
-    <p>
-      To parse the body of a request in Express, you need to provide a
-      middleware:<br />
-    </p>
-    <img
-      src="/assets/images/week3/body-parsing.png"
-      alt="Body parsing"
-      class="img-fluid mb-3"
-    />
-    <p>
-      When a POST request is made to the '/example' endpoint, express.json()
-      middleware parses the JSON data from the request body, and you can access
-      it in your route handler via req.body. This allows you to work with the
-      data sent by the client in the POST request.
-    </p>
+      <p>
+        <b>nodemon.json</b> shall be added to root of project when using
+        <b>SSR</b>, because of only loading the server one time when starting it
+        up. This is a performance optimization. <br />
+        nodemon as default will NOT watch for changes in files, therefor 'ext'
+        tells which extentions to listen to: <br />
+        <code>{ "ext": "html,js,json,css" }</code>
+        <p>
+          We can also tell this in the terminal when starting the server: <br />
+          <code>$ nodemon --ext html,js,json,css app.js</code> <br />
+          But it is not a good practice to do so, because it has to be done every
+          time the server is started. Therefor it's better to make the 
+          configuration file where nodemon will read the "flags".
+        </p>
+      </p>
+      <h4 id="loop">Loop methods</h4>
+      <p>forEach, map, filter, sort, find and reduce.</p>
+      <p>
+        Using these loop methods in a functional manner reduces the risk of
+        errors, confusion, and unintended side effects. It also makes the code
+        shorter and clearer<br />
+        for-loops are ONLY for finger counting (counting to a number).
+      </p>
+      <h4 id="url">Anatomy of an URL</h4>
+      <img
+        src="/assets/images/week3/anatomy-of-an-URL.png"
+        alt="URL"
+        class="img-fluid mb-3"
+      />
+      <h4 id="post-request">POST requests</h4>
+      <p>
+        POST requests in Express are handled with the
+        <code>app.post()</code> method.
+      </p>
+      <img
+        src="/assets/images/week3/post-request.png"
+        alt="POST request"
+        class="img-fluid mb-3"
+      />
+      <h4 id="parsing">Body parsing</h4>
+      <p>
+        When a POST request is sent to the server, the server needs to parse the
+        body of the request to get the data.
+      </p>
+      <p>If the data is JSON the server needs to parse it as JSON.</p>
+      <p>
+        To parse the body of a request in Express, you need to provide a
+        middleware:<br />
+      </p>
+      <img
+        src="/assets/images/week3/body-parsing.png"
+        alt="Body parsing"
+        class="img-fluid mb-3"
+      />
+      <p>
+        When a POST request is made to the '/example' endpoint, express.json()
+        middleware parses the JSON data from the request body, and you can access
+        it in your route handler via req.body. This allows you to work with the
+        data sent by the client in the POST request.
+      </p>
+    </article>
   </div>
 
   <div class="col-md-6">
-    <div class="border border-secondary shadow p-3 sticky-lg-top">
-      <h4>Learning goals:</h4>
+    <div class="sticky-lg-top">
+      <div id="toc-container" class="border border-secondary shadow p-2">
+        <h4>Table of Contents</h4>
+        <hr>
+        <ul id="toc" class="sticky-content"></ul>
+      </div>
       <hr />
-      <ul id="learning-goals">
-        <li>
-          Understands the use case for Nodemon and its limitation for
-          development.
-        </li>
-        <li>
-          Can use loop methods (+map, +filter, %reduce). Can choose the right
-          one at the appropriate time: We wish to use loop methods and in a
-          functional manner (avoiding side effects). for loops are for finger
-          counting.
-        </li>
-        <li>
-          Understands why a functional approach to loops is to be preferred and
-          how to implement it without side effects.
-        </li>
-        <li>
-          Can use the right terminology when it comes to the different parts of
-          an URL.
-        </li>
-        <li>Can make a POST request and handle it in Express.</li>
-        <li>
-          Understands the need for body parsing and how to do it in Express.
-        </li>
-      </ul>
+      <div class="border border-secondary shadow p-2">
+        <h4>Learning goals:</h4>
+        <hr />
+        <ul id="learning-goals">
+          <li>
+            Understands the use case for Nodemon and its limitation for
+            development.
+          </li>
+          <li>
+            Can use loop methods (+map, +filter, %reduce). Can choose the right
+            one at the appropriate time: We wish to use loop methods and in a
+            functional manner (avoiding side effects). for loops are for finger
+            counting.
+          </li>
+          <li>
+            Understands why a functional approach to loops is to be preferred and
+            how to implement it without side effects.
+          </li>
+          <li>
+            Can use the right terminology when it comes to the different parts of
+            an URL.
+          </li>
+          <li>Can make a POST request and handle it in Express.</li>
+          <li>
+            Understands the need for body parsing and how to do it in Express.
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
