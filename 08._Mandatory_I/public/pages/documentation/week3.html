@@ -46,13 +46,32 @@
       <h4 id="post-request">POST requests</h4>
       <p>
         POST requests in Express are handled with the
-        <code>app.post()</code> method.
+        <code>app.post()</code> method. <br />
+        Inside the route handler function, we access the data sent 
+        in the request body using <code>req.body</code>. <br />
+        We send a response back to the client using <code>res.send()</code>.
       </p>
       <img
         src="/assets/images/week3/post-request.png"
         alt="POST request"
         class="img-fluid mb-3"
       />
+      <h5 id="postman">Testing in Postman</h5>
+      <p>
+        We can use Postman to test the POST requests and see the data sent in
+        the request body. If we want to send JSON data, follow these steps:
+      </p>
+      <ol>
+        <li>Set the request method to POST.</li>
+        <li>Enter the URL where your Express server is running. Example:
+          <b>http://localhost:8080/postman</b></li>
+        <li>Click on the "Body" tab.</li>
+        <li>Select "raw" and choose "JSON" from the dropdown menu.</li>
+        <li>Enter the JSON data we want to send in the request body.</li>
+        <li>Click on the Send button.</li>
+      </ol>
+      <p>Postman will then send a POST request to the Express server 
+        with the JSON data in the request body</p>
       <h4 id="parsing">Body parsing</h4>
       <p>
         When a POST request is sent to the server, the server needs to parse the
