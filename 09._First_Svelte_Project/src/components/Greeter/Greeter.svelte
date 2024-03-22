@@ -1,1 +1,4 @@
-<h1>Hellooooo</h1>
+<script>
+    export let name = "anonymous";
+</script>
+<p>{name}</p>
