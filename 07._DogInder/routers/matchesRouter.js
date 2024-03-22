@@ -1,10 +1,10 @@
 import { Router } from "express";
-import getMatches from '../util/matches.js';
+import matchesPage from '../util/matches.js';
 
 const router = Router();
 
 router.get('/api/matches', async (req, res) => {
-    const matches = await getMatches();
+    const matches = await matchesPage();
     res.send({ data: matches });
 });
 

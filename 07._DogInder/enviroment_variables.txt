@@ -1,0 +1,5 @@
+Installer cross-env: "npm install --save-dev cross-env"
+cross-env er et script er en wrapper der kalder på node
+
+PORT=9090 - er en environment variabel
+
