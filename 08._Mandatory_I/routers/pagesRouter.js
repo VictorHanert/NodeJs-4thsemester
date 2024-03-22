@@ -1,47 +1,24 @@
-import { homepagePage, 
-    assignment_descriptionPage, 
-    week1Page,
-    week2Page,
-    week3Page,
-    week4Page,
-    week5Page,
-    week6Page,
-    week7Page
- } from '../util/readPages.js';
-
 import { Router } from "express";
+import * as pages from '../util/readPages.js';
 
 const router = Router();
 
-// =========== HTML ============
-router.get("/", (req, res) => {
-    res.send(homepagePage);
-});
+const pageRoutes = [
+    { path: "/", page: "homepagePage" },
+    { path: "/assignment", page: "assignment_descriptionPage" },
+    { path: "/week1", page: "week1Page" },
+    { path: "/week2", page: "week2Page" },
+    { path: "/week3", page: "week3Page" },
+    { path: "/week4", page: "week4Page" },
+    { path: "/week5", page: "week5Page" },
+    { path: "/week6", page: "week6Page" },
+    { path: "/week7", page: "week7Page" },
+];
 
-router.get("/assignment", (req, res) => {
-    res.send(assignment_descriptionPage);
-});
-
-router.get("/week1", (req, res) => {
-    res.send(week1Page);
-});
-router.get("/week2", (req, res) => {
-    res.send(week2Page);
-});
-router.get("/week3", (req, res) => {
-    res.send(week3Page);
-});
-router.get("/week4", (req, res) => {
-    res.send(week4Page);
-});
-router.get("/week5", (req, res) => {
-    res.send(week5Page);
-});
-router.get("/week6", (req, res) => {
-    res.send(week6Page);
-});
-router.get("/week7", (req, res) => {
-    res.send(week7Page);
+pageRoutes.forEach(route => {
+    router.get(route.path, (req, res) => {
+        res.send(pages[route.page]);
+    });
 });
 
 export default router;
