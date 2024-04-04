@@ -24,3 +24,27 @@
     <button type="submit">Login</button>
   </form>
 </div>
+
+<style>
+  .form-element {
+    margin-bottom: 10px;
+  }
+
+  input {
+    padding: 5px;
+    width: 100%;
+  }
+
+  button {
+    padding: 5px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
