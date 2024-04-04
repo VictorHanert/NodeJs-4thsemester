@@ -1,6 +1,6 @@
 <script>
-  import Login from "./components/Login.svelte";
-  import Signup from "./components/Signup.svelte";
+  import Login from "./components/Login/Login.svelte";
+  import Signup from "./components/Signup/Signup.svelte";
 
   let activeForm = 'login';
 </script>
