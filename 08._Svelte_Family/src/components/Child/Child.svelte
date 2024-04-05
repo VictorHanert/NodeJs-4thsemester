@@ -1,5 +1,7 @@
 <script>
     export let child;
+    export let onShowLove;
+    export let onTakeFromTreasureChest;
 </script>
 
 <div
@@ -8,6 +10,9 @@
     class={child.familySheep || "not-a-black-sheep"}
 >
     <p>{child.name}</p>
+    <button on:click={() => onShowLove(child.name)}>Show Love 💚</button>
+    <br>
+    <button on:click={onTakeFromTreasureChest}>Take from treasure chest</button>
 
 </div>
 
