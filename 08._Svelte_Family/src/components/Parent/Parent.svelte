@@ -3,6 +3,7 @@
     export let myChildren;
 
     import Child from "../Child/Child.svelte";
+    import { fridgeMessages } from "../../stores/fridgeMessageStore";
 
     function handleShowLove(childName) {
         console.log(`${parentName} is loved by ${childName}`);
@@ -13,14 +14,19 @@
 
     const childrenTakingItemsCount = {};
 
-    function handleTakeFromTreasureChest(childName) {
+    function handleTakeFromTreasureChest() {
         treasureChest.pop();
         treasureChest = treasureChest;
     }
 
+    function clearFridgeMessages() {
+        fridgeMessages.set([{message: "Svelte Family Fridge"}]);
+    }
+
 </script>
 
-<h2>{parentName}</h2>
+<h2>{parentName}</h2> 
+<button on:click={clearFridgeMessages}>Clear fridge ❌</button>
 <div>
     {#each treasureChest as treasure}
     <span>{treasure + " "}</span>

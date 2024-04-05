@@ -12,6 +12,7 @@
         creator: child.name,
         message: fridgeMessageInputValue
     };
+
     fridgeMessages.set([... $fridgeMessages, newFridgeMessage]);
     fridgeMessageInputValue = "";
   }
