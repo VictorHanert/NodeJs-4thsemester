@@ -38,7 +38,7 @@
               Login
             </button>
           </form>
-          <p class="text-center mt-4">Forgot your password?
+          <p class="text-center mt-8">Forgot your password?
             <button on:click={resetPassword} id="reset-password" class="text-blue-500 underline">Reset it here</button>
           </p>
 </main>
