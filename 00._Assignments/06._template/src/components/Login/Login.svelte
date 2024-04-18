@@ -5,7 +5,7 @@
 
 <main>
           <h2 class="text-2xl font-bold text-black mb-8 text-center">Login</h2>
-          <form>
+          <form method="POST">
             <div class="mb-4">
               <label for="name" class="block text-sm font-medium text-gray-700">Username</label>
               <input id="name" name="name" placeholder="insert here" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
