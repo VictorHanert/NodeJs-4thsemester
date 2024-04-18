@@ -1,8 +1,17 @@
 <script>
+  import toast, { Toaster } from "svelte-french-toast";
+
   let name = "";
   let password = "";
-</script>
 
+  const resetPassword = () => {
+    toast("Email send to reset password", {
+      icon: "✅",
+      position: "center-top",
+    });
+  };
+</script>
+<Toaster />
 <main>
           <h2 class="text-2xl font-bold text-black mb-8 text-center">Login</h2>
           <form method="POST">
@@ -29,4 +38,7 @@
               Login
             </button>
           </form>
+          <p class="text-center mt-4">Forgot your password?
+            <button on:click={resetPassword} id="reset-password" class="text-blue-500 underline">Reset it here</button>
+          </p>
 </main>
