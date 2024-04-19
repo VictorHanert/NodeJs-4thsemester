@@ -1,15 +1,13 @@
 <script>
     import { onMount } from "svelte";
-    import { BASE_URL } from "../../stores/generalStore";
+    import { BASE_URL } from "../../stores/generalStore.js";
 
     let movies = [];
 
-    onMount(() => {
-        fetch($BASE_URL + "/api/movies")
-        .then((response) => response.json())
-        .then((result) => {
-            movies = result.data
-        });
+    onMount(async () => {
+        const response = await fetch($BASE_URL + "/api/movies");
+        const result = await response.json();
+        movies = result.data;
     });
 </script>
 
