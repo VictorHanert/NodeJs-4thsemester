@@ -2,15 +2,15 @@
     import { onMount } from "svelte";
     import { navigate } from "svelte-navigator";
     import { BASE_URL } from "../../stores/generalStore";
-    import { fetchGet, fetchPost } from "../../util/api";
+    import { fetchGET, fetchPOST } from "../../util/api";
 
     onMount(async() => {
         const customer = {
             name: "Helle"
         };
-        await fetchPost($BASE_URL + "/api/customers", customer);
+        await fetchPOST($BASE_URL + "/api/customers", customer);
 
-        const result = await fetchGet($BASE_URL + "/api/customers");
+        const result = await fetchGET($BASE_URL + "/api/customers");
         console.log(result);
     });
 
