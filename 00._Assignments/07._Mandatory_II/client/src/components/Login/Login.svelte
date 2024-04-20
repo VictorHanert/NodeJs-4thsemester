@@ -26,7 +26,7 @@
         throw new Error("Login failed");
       }
       // if login is successful, redirect to home page:
-      await goto("/");
+      await goto("/myspace");
     } catch (error) {
       console.error(error);
       toast("Invalid username or password", {
