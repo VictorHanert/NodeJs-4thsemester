@@ -5,7 +5,7 @@ export default {
     extend: {
       minHeight: {
         'screen': '100vh',
-        'form': '580px', // adjust this value as needed
+        'form': '580px',
       }
     }
   },

@@ -1,4 +1,21 @@
 <script>
+  import {goto} from '$app/navigation';
+  import user from '../user';
+    $: isLoggedIn = $user === null? false : true;
+
+    const logout = async()=>{
+        await fetch('http://localhost:3030/api/logout',{
+            method: "POST",
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'content-type':  'application/json',
+            }
+        })
+        user.update(val => val = null);
+        await goto('/',{noScroll: false,replaceState: true});
+    }
+
   export let y;
 
   export let tabs = [
@@ -14,10 +31,7 @@
       : " py-6 bg-transparent border-transparent")}
 >
   <h1 class="font-medium">
-    <a
-      href="/"
-      class="hover:text-violet-400 duration-300 hover:text-2xl"
-    >
+    <a href="/" class="hover:text-violet-400 duration-300 hover:text-2xl">
       <b class="font-bold poppins">My</b> Space
     </a>
   </h1>
@@ -31,14 +45,19 @@
         <p>{tab.name}</p>
       </a>
     {/each}
-    <a
-      href="/auth"
-      class="blueShadow relative overflow-hidden px-5 py-2 group rounded-full bg-white text-slate-950"
-    >
-      <div
-        class="absolute top-0 right-full w-full h-full bg-violet-400 opacity-20 group-hover:translate-x-full z-0 duration-200"
-      />
-      <h4 class="relative z-9">Login &rarr;</h4>
-    </a>
+
+    {#if isLoggedIn === false}
+      <a
+        href="/auth"
+        class="blueShadow relative overflow-hidden px-5 py-2 group rounded-full bg-white text-slate-950"
+      >
+        <div
+          class="absolute top-0 right-full w-full h-full bg-violet-400 opacity-20 group-hover:translate-x-full z-0 duration-200"
+        />
+        <h4 class="relative z-9">Login &rarr;</h4>
+      </a>
+    {:else}
+      <button on:click={logout}>Logout</button>
+    {/if}
   </div>
 </header>

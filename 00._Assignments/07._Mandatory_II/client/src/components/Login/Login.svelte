@@ -5,35 +5,35 @@
 
   let username = "";
   let password = "";
+  let currentError = "";
 
-  const login = async () => {
-    const customer = {
-      username,
-      password,
-    };
-
-    try {
-      const response = await fetch(`${$BASE_URL}/api/login`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(customer),
+  const login = () => {
+    fetch("http://localhost:3030/api/login", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.error === true) throw new Error(data.message);
+      })
+      .then(async () => {
+        await goto("/myspace", { noScroll: false, replaceState: true });
+      })
+      .catch((error) => {
+        currentError = error;
+        console.log("Error loggin in", error);
       });
-
-      if (!response.ok) {
-        throw new Error("Login failed");
-      }
-      // if login is successful, redirect to home page:
-      await goto("/myspace");
-    } catch (error) {
-      console.error(error);
-      toast("Invalid username or password", {
-        icon: "❌",
-        position: "center-top",
-      });
-    }
   };
 
   const resetPassword = () => {
@@ -85,6 +85,9 @@
     >
       Login
     </button>
+    <div>
+      <small>{currentError}</small>
+    </div>
   </form>
   <p class="text-center mt-8">
     Forgot your password?

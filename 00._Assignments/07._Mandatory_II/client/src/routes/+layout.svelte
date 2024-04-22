@@ -1,7 +1,9 @@
 <script>
+  //import Navbar from '../lib/Navbar.svelte';
   import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
   import "../app.css";
+
   let y;
   let innerWidth = 0;
   let innerHeight = 0;

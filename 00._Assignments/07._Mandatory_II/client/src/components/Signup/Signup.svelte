@@ -3,70 +3,84 @@ import { BASE_URL } from "../../stores/generalStore.js";
 import { goto } from "$app/navigation";
 import toast from "svelte-french-toast";
 
-  let name = "";
-  let email = "";
-  let password = "";
+    let username = '';
+    let password = '';
+    let firstname = '';
+    let lastname = '';
+    let currentError = '';
 
-    const signup = async () => {
-        const customer = {
-        name,
-        email,
-        password,
-        };
-    
-        try {
-        const response = await fetch($BASE_URL + '/api/signup', {
+    const register = ()=>{
+        fetch('http://localhost:3030/api/register',{
             method: "POST",
-            credentials: "include",
-            headers: {
-            "Content-Type": "application/json",
+            headers:{
+                'Accept': 'application/json',
+                'content-type':  'application/json',
             },
-            body: JSON.stringify(customer),
-        });
-    
-        if (!response.ok) {
-            throw new Error("Signup failed");
-        }
-        // if signup is successful, redirect to login page:
-        await goto("/auth");
-        } catch (error) {
-        console.error(error);
-        toast("Signup failed", {
-            icon: "❌",
-            position: "center-top",
-        });
-        }
-    };
+            body: JSON.stringify({
+                username: username,
+                firstname: firstname,
+                lastname: lastname,
+                password: password,
+            })
+        })
+        .then((res) =>{
+            return res.json()
+        })
+        .then((data)=>{
+            console.log(data);
+            if(data.error === true) throw new Error(data.message);
+        })
+        .then( async()=>{
+            await goto('/login',{noScroll: false, replaceState: true})
+        })
+        .catch((error)=>{
+            currentError = error;
+            console.log("Error registering",error)
+        })
+    }
 </script>
 
 <main>
   <h2 class="text-2xl font-bold mb-8 text-center">Sign up</h2>
-  <form method="POST">
+  <form on:submit|preventDefault={register}>
     <div class="mb-4">
       <label for="name" class="block text-sm font-medium text-gray-700"
-        >Username</label
+        >Firstname</label
       >
       <input
-        id="name"
-        name="name"
+        id="firstname"
+        name="firstname"
         placeholder="insert here"
         required
-        bind:value={name}
+        bind:value={firstname}
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
 
     <div class="mb-4">
-      <label for="email" class="block text-sm font-medium text-gray-700"
-        >Email</label
+      <label for="name" class="block text-sm font-medium text-gray-700"
+        >Lastname</label
       >
       <input
-        id="email"
-        name="email"
-        type="email"
+        id="lastname"
+        name="lastname"
         placeholder="insert here"
         required
-        bind:value={email}
+        bind:value={lastname}
+        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label for="username" class="block text-sm font-medium text-gray-700"
+        >Username</label
+      >
+      <input
+        id="username"
+        name="username"
+        placeholder="insert here"
+        required
+        bind:value={username}
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
@@ -86,10 +100,13 @@ import toast from "svelte-french-toast";
       />
     </div>
 
-    <button
+    <button type='submit'
       class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
     >
       Sign Up
     </button>
+    <div>
+      <small>{currentError}</small>
+  </div>
   </form>
 </main>
