@@ -44,3 +44,7 @@ h3,
     object-position: center;
     object-fit: cover;
 }
+
+main {
+    min-height: 100vh;
+}

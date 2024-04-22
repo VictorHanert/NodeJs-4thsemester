@@ -1,8 +1,9 @@
 <script>
     import user from "../../user";
 </script>
-
-
+<svelte:head>
+ <title>Admin</title>
+</svelte:head>
 
 {#if $user?.role === 'admin'}
 <h1>Welcome {$user?.firstName}</h1>

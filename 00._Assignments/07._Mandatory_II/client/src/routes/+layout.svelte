@@ -1,5 +1,4 @@
 <script>
-  //import Navbar from '../lib/Navbar.svelte';
   import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
   import "../app.css";
@@ -30,7 +29,9 @@
     </button>
   </div>
   <Header {y} {innerHeight} />
-  <slot />
+  <div class="min-h-screen">
+    <slot />
+  </div>
   <Footer />
 </div>
 <svelte:window bind:scrollY={y} bind:innerHeight bind:innerWidth />

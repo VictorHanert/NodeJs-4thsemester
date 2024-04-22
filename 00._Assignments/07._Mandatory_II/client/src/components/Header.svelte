@@ -1,23 +1,9 @@
 <script>
-  import { goto } from "$app/navigation";
+  import { logout } from "../util/api.js";
   import user from "../user";
   $: isLoggedIn = $user === null ? false : true;
 
-  const logout = async () => {
-    await fetch("http://localhost:3030/api/logout", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "content-type": "application/json",
-      },
-    });
-    user.update((val) => (val = null));
-    await goto("/", { noScroll: false, replaceState: true });
-  };
-
   export let y;
-
   export let tabs = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
@@ -31,7 +17,7 @@
       : " py-6 bg-transparent border-transparent")}
 >
   <h1 class="font-medium">
-    <a href="/" class="hover:text-violet-400 duration-300 hover:text-2xl">
+    <a href="/myspace" class="hover:text-violet-400 duration-300 hover:text-2xl">
       <b class="font-bold poppins">My</b> Space
     </a>
   </h1>

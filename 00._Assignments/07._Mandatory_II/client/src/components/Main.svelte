@@ -25,12 +25,16 @@
         <h4 class="relative z-9">Login &rarr;</h4>
       </a>
     </div>
-    <div class="relative shadow-2xl grid place-items-center">
-      <!-- <img
-                src={"images/profile.png"}
-                alt="pict"
-                class="object-cover z-[2] max-h-[70vh] bg-black border rounded"
-            /> -->
-    </div>
   </section>
+  <div class="grid place-items-center m-10">
+    <p class="hover:text-violet-200">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.
+    </p>
+  </div>
 </main>
