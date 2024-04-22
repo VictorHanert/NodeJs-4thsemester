@@ -1,2 +1,0 @@
-# Template
- SvelteKit & TailwindCSS webpage

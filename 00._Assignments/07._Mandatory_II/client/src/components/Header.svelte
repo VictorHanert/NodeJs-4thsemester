@@ -4,10 +4,6 @@
   $: isLoggedIn = $user === null ? false : true;
 
   export let y;
-  export let tabs = [
-    { name: "Home", link: "/" },
-    { name: "About", link: "/about" },
-  ];
 </script>
 
 <header
