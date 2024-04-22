@@ -1,20 +1,20 @@
 <script>
-  import {goto} from '$app/navigation';
-  import user from '../user';
-    $: isLoggedIn = $user === null? false : true;
+  import { goto } from "$app/navigation";
+  import user from "../user";
+  $: isLoggedIn = $user === null ? false : true;
 
-    const logout = async()=>{
-        await fetch('http://localhost:3030/api/logout',{
-            method: "POST",
-            credentials: 'include',
-            headers: {
-                'Accept': 'application/json',
-                'content-type':  'application/json',
-            }
-        })
-        user.update(val => val = null);
-        await goto('/',{noScroll: false,replaceState: true});
-    }
+  const logout = async () => {
+    await fetch("http://localhost:3030/api/logout", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+    });
+    user.update((val) => (val = null));
+    await goto("/", { noScroll: false, replaceState: true });
+  };
 
   export let y;
 
@@ -57,7 +57,8 @@
         <h4 class="relative z-9">Login &rarr;</h4>
       </a>
     {:else}
-      <button on:click={logout}>Logout</button>
+      <button class="blueShadow px-5 py-2 rounded-full bg-violet-400 hover:bg-violet-500"
+      on:click={logout}>Logout ⎋</button>
     {/if}
   </div>
 </header>
