@@ -3,11 +3,11 @@ import { BASE_URL } from "../../stores/generalStore.js";
 import { goto } from "$app/navigation";
 import toast from "svelte-french-toast";
 
+
     let username = '';
     let password = '';
     let firstname = '';
     let lastname = '';
-    let currentError = '';
 
     const register = ()=>{
         fetch('http://localhost:3030/api/register',{
@@ -17,27 +17,24 @@ import toast from "svelte-french-toast";
                 'content-type':  'application/json',
             },
             body: JSON.stringify({
-                username: username,
-                firstname: firstname,
-                lastname: lastname,
-                password: password,
-            })
+            username: username,
+            firstname: firstname,
+            lastname: lastname,
+            password: password,
         })
-        .then((res) =>{
-            return res.json()
-        })
-        .then((data)=>{
-            console.log(data);
-            if(data.error === true) throw new Error(data.message);
-        })
-        .then( async()=>{
-            await goto('/login',{noScroll: false, replaceState: true})
-        })
-        .catch((error)=>{
-            currentError = error;
-            console.log("Error registering",error)
-        })
-    }
+    })
+    .then((res) =>{
+        return res.json()
+    })
+    .then(async (data)=>{
+        console.log(data);
+        if(data.error === true) throw new Error(data.message);
+        location.reload();
+    })
+    .catch((error)=>{
+        console.log("Error registering",error)
+    })
+}
 </script>
 
 <main>
@@ -105,8 +102,5 @@ import toast from "svelte-french-toast";
     >
       Sign Up
     </button>
-    <div>
-      <small>{currentError}</small>
-  </div>
   </form>
 </main>

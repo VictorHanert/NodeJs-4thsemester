@@ -1,5 +1,5 @@
 import { goto } from "$app/navigation";
-import user from "../user";
+import user from "../stores/userStore";
 
 export function login(username, password) {
   return fetch("http://localhost:3030/api/login", {

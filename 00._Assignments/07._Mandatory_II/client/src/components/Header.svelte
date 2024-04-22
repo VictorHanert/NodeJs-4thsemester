@@ -1,6 +1,6 @@
 <script>
   import { logout } from "../util/api.js";
-  import user from "../user";
+  import user from "../stores/userStore.js";
   $: isLoggedIn = $user === null ? false : true;
 
   export let y;

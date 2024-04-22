@@ -1,7 +1,7 @@
 <script>
   import MySpace from "../../components/MySpace.svelte";
   import { onMount } from "svelte";
-  import user from "../../user";
+  import user from "../../stores/userStore.js";
 
   $: isLoggedIn = $user === null ? false : true;
 
