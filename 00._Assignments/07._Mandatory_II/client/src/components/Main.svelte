@@ -1,4 +1,6 @@
 <script>
+  import user from "../stores/userStore.js";
+  $: isLoggedIn = $user === null ? false : true;
 </script>
 
 <main class="flex flex-col flex-1 p-4">
@@ -15,6 +17,7 @@
         to be used in <span class="poppins text-violet-400">Node.js</span>
         semester
       </h2>
+      {#if isLoggedIn === false}
       <a
         href="/auth"
         class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950"
@@ -24,6 +27,17 @@
         />
         <h4 class="relative z-9">Login <i class="fa-solid fa-right-to-bracket"></i></h4>
       </a>
+      {:else}
+      <a
+        href="/myspace"
+        class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950"
+      >
+        <div
+          class="absolute top-0 right-full w-full h-full bg-violet-400 opacity-20 group-hover:translate-x-full z-0 duration-200"
+        />
+        <h4 class="relative z-9">Explore MySpace <i class="fa-solid fa-globe"></i></h4>
+      </a>
+      {/if}
     </div>
   </section>
   <div class="grid place-items-center m-10">

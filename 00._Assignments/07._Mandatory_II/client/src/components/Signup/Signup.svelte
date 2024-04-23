@@ -1,45 +1,17 @@
 <script>
-import { BASE_URL } from "../../stores/generalStore.js";
-import { goto } from "$app/navigation";
-import toast from "svelte-french-toast";
+  import { register } from "../../util/api.js";
 
-
-    let username = '';
-    let password = '';
-    let firstname = '';
-    let lastname = '';
-
-    const register = ()=>{
-        fetch('http://localhost:3030/api/register',{
-            method: "POST",
-            headers:{
-                'Accept': 'application/json',
-                'content-type':  'application/json',
-            },
-            body: JSON.stringify({
-            username: username,
-            firstname: firstname,
-            lastname: lastname,
-            password: password,
-        })
-    })
-    .then((res) =>{
-        return res.json()
-    })
-    .then(async (data)=>{
-        console.log(data);
-        if(data.error === true) throw new Error(data.message);
-        location.reload();
-    })
-    .catch((error)=>{
-        console.log("Error registering",error)
-    })
-}
+  let username = "";
+  let password = "";
+  let firstname = "";
+  let lastname = "";
 </script>
 
 <main>
   <h2 class="text-2xl font-bold mb-8 text-center">Sign up</h2>
-  <form on:submit|preventDefault={register}>
+  <form
+    on:submit|preventDefault={register(username, firstname, lastname, password)}
+  >
     <div class="mb-4">
       <label for="name" class="block text-sm font-medium text-gray-700"
         >Firstname</label
@@ -97,7 +69,8 @@ import toast from "svelte-french-toast";
       />
     </div>
 
-    <button type='submit'
+    <button
+      type="submit"
       class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
     >
       Sign Up
