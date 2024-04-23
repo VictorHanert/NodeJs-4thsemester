@@ -2,7 +2,7 @@
     import user from "../../user";
 </script>
 <svelte:head>
- <title>Admin</title>
+ <title>Admin page</title>
 </svelte:head>
 
 {#if $user?.role === 'admin'}

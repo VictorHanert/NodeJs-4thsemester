@@ -24,10 +24,6 @@
   });
 </script>
 
-<svelte:head>
-  <title>MySpace</title>
-</svelte:head>
-
 {#if isLoggedIn}
   <MySpace />
 {:else}
