@@ -1,7 +1,7 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import dbConn from "../dbConn.js";
-import { registerUser } from "../util/findUser.js";
+import { registerUser } from "../util/userUtil.js";
 
 const router = Router();
 
