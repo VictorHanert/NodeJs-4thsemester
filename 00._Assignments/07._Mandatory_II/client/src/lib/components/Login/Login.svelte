@@ -1,6 +1,6 @@
 <script>
   import toast, { Toaster } from "svelte-french-toast";
-  import { login } from "../../util/api.js";
+  import { login } from "$lib/util/api.js";
 
   let username = "";
   let password = "";

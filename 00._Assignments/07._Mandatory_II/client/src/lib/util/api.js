@@ -1,7 +1,20 @@
 import { goto } from "$app/navigation";
-import user from "../stores/userStore";
+import user from "$lib/stores/userStore";
 
 const BASE_URL = "http://localhost:3030";
+
+export async function userLoggedInStatus() {
+    const result = await fetch(BASE_URL + "/api/user", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+    });
+    return result;
+  };
+
 
 export function register(username, firstname, lastname, password) {
   fetch(BASE_URL + "/api/register", {

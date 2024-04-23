@@ -1,5 +1,5 @@
 <script>
-  import { register } from "../../util/api.js";
+  import { register } from "$lib/util/api.js";
 
   let username = "";
   let password = "";

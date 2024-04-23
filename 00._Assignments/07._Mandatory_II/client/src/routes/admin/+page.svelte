@@ -1,5 +1,5 @@
 <script>
-    import user from "../../user";
+    import user from "$lib/stores/userStore.js";
 </script>
 <svelte:head>
  <title>Admin page</title>
