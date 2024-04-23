@@ -1,28 +1,25 @@
 import express from 'express';
-import path from 'path';
-import cookieParser from 'cookie-parser';
-import logger from 'morgan';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-
 const app = express();
-app.options('*', (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", 'http://localhost:5173');
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Headers", ['X-Requested-With','content-type','credentials']);
-  res.header('Access-Control-Allow-Methods', 'GET,POST');
-  res.status(200);
-  next();
-});
-
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+import cookieParser from 'cookie-parser';
 app.use(cookieParser());
+
+import logger from 'morgan';
+app.use(logger('dev'));
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'public')));
+
+import cors from "cors";
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:5173'
+}));
 
 import loginRouter from "./routers/loginRouter.js";
 import logoutRouter from "./routers/logoutRouter.js";

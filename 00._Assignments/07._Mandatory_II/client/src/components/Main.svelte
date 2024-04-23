@@ -17,27 +17,18 @@
         to be used in <span class="poppins text-violet-400">Node.js</span>
         semester
       </h2>
-      {#if isLoggedIn === false}
       <a
-        href="/auth"
+        href={isLoggedIn ? "/myspace" : "/auth"}
         class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950"
       >
         <div
           class="absolute top-0 right-full w-full h-full bg-violet-400 opacity-20 group-hover:translate-x-full z-0 duration-200"
         />
-        <h4 class="relative z-9">Login <i class="fa-solid fa-right-to-bracket"></i></h4>
+        <h4 class="relative z-9">
+          {isLoggedIn ? "Explore MySpace" : "Login"}
+          <i class="fa-solid {isLoggedIn ? 'fa-globe' : 'fa-right-to-bracket'}"></i>
+        </h4>
       </a>
-      {:else}
-      <a
-        href="/myspace"
-        class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950"
-      >
-        <div
-          class="absolute top-0 right-full w-full h-full bg-violet-400 opacity-20 group-hover:translate-x-full z-0 duration-200"
-        />
-        <h4 class="relative z-9">Explore MySpace <i class="fa-solid fa-globe"></i></h4>
-      </a>
-      {/if}
     </div>
   </section>
   <div class="grid place-items-center m-10">
@@ -46,9 +37,9 @@
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
       commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
     </p>
   </div>
 </main>

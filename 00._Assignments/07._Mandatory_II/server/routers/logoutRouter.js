@@ -1,12 +1,8 @@
 import { Router } from "express";
 const router = Router();
 
-
-/* POST users listing. */
 router.post('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", 'http://localhost:5173');
-  res.header("Access-Control-Allow-Credentials", 'true');
-  res.cookie('token',{httpOnly: true, maxAge: 0});
+  res.clearCookie('token');
   res.send({success: true, error: false, message: "Logout Successful!", data: null});
 });
 

@@ -14,8 +14,6 @@ const findUserById = async (collection,userId)=>{
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", 'http://localhost:5173');
-  res.header("Access-Control-Allow-Credentials", 'true');
   const cookie = req.cookies['token'];
 
   try{

@@ -12,7 +12,6 @@ const registerUser = async (collection, user)=>{
 /* POST users listing. */
 router.post('/', async function(req, res, next) {
   console.log(req.body);
-  res.header("Access-Control-Allow-Origin", 'http://localhost:5173');
   if(!req.body.username){
     return res.status(500).json({success: false, error: true, message: "Missing Username", data: req.body});
   }
