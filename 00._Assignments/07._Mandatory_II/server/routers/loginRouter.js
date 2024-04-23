@@ -2,15 +2,11 @@ import { Router } from "express";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dbConn from '../dbConn.js';
+import { findUser } from '../util/findUser.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
 const router = Router();
-
-const findUser = async (collection, user) => {
-    const User = await collection.find({ username: user }).toArray();
-    return User[0];
-}
 
 router.post('/', async (req, res, next) => {
     try {

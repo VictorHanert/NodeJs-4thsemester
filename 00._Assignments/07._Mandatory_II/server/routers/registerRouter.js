@@ -1,37 +1,47 @@
 import { Router } from "express";
+import bcrypt from "bcrypt";
+import dbConn from "../dbConn.js";
+import { registerUser } from "../util/findUser.js";
+
 const router = Router();
-import bcrypt from 'bcrypt';
-import dbConn from '../dbConn.js';
 
-const registerUser = async (collection, user)=>{
-    const register = await collection.insertOne(user);
-    const index = await collection.createIndex({ username:1 }, { unique: true });
-    return register
-}
+router.post("/", async function (req, res, next) {
+  try {
+    const { username, password, firstname, lastname } = req.body;
 
-/* POST users listing. */
-router.post('/', async function(req, res, next) {
-  console.log(req.body);
-  if(!req.body.username){
-    return res.status(500).json({success: false, error: true, message: "Missing Username", data: req.body});
-  }
-  if(!req.body.password){
-    return res.status(500).json({success: false, error: true, message: "Missing Password", data: req.body});
-  }
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
-  const newUser = {
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    username: req.body.username,
-    password: hashedPassword
-  }
+    if (!username || !password) {
+      return res.status(400).json({
+          success: false,
+          error: true,
+          message: "Missing username or password",
+        });
+    }
 
-  try{
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Prepare user object for registration
+    const newUser = {
+      firstname,
+      lastname,
+      username,
+      password: hashedPassword,
+    };
     const newRegister = await registerUser(dbConn.Coll, newUser);
-    res.json({success: true, error: false, message: "Successful Registration!", data: newRegister});
-  } catch(error) {
-    res.status(500).json({success: false, error: true, message: "Error with db register", data: req.body});
+
+    res.json({
+      success: true,
+      error: false,
+      message: "Successful Registration!",
+      data: newRegister,
+    });
+  } catch (error) {
+    res.status(500).json({
+        success: false,
+        error: true,
+        message: "Error with database registration",
+        data: req.body,
+      });
   }
 });
 
