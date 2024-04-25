@@ -5,17 +5,16 @@ import { toast } from "svelte-french-toast";
 const BASE_URL = "http://localhost:3030";
 
 export async function userLoggedInStatus() {
-    const result = await fetch(BASE_URL + "/api/user", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "content-type": "application/json",
-      },
-    });
-    return result;
-  };
-
+  const result = await fetch(BASE_URL + "/api/user", {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      Accept: "application/json",
+      "content-type": "application/json",
+    },
+  });
+  return result;
+}
 
 export function register(username, firstname, lastname, password, email) {
   fetch(BASE_URL + "/api/register", {
@@ -86,18 +85,18 @@ export async function logout() {
       "content-type": "application/json",
     },
   })
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error(res.statusText);
-    }
-    user.update((val) => (val = null));
-    toast.success("You have been logged out", {
-      duration: 3000,
-      position: "top-center",
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+      user.update((val) => (val = null));
+      toast.success("You have been logged out", {
+        duration: 3000,
+        position: "top-center",
+      });
+      return goto("/", { noScroll: false, replaceState: true });
+    })
+    .catch((error) => {
+      console.error("Error logging out:", error);
     });
-    return goto("/", { noScroll: false, replaceState: true });
-  })
-  .catch((error) => {
-    console.error("Error logging out:", error);
-  });
 }
