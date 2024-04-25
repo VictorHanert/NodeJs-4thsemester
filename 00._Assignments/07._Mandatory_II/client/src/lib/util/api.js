@@ -16,7 +16,7 @@ export async function userLoggedInStatus() {
   };
 
 
-export function register(username, firstname, lastname, password) {
+export function register(username, firstname, lastname, password, email) {
   fetch(BASE_URL + "/api/register", {
     method: "POST",
     headers: {
@@ -28,6 +28,7 @@ export function register(username, firstname, lastname, password) {
       firstname: firstname,
       lastname: lastname,
       password: password,
+      email: email,
     }),
   })
     .then((res) => {

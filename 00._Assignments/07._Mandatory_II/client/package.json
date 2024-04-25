@@ -17,10 +17,8 @@
 		"vite": "^4.4.2"
 	},
 	"dependencies": {
+		"@emailjs/browser": "^4.3.3",
 		"svelte-french-toast": "^1.2.0"
 	},
-	"type": "module",
-	"engines": {
-		"node": "16.x"
-	}
+	"type": "module"
 }

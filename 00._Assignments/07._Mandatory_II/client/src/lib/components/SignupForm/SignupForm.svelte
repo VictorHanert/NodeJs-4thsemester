@@ -5,12 +5,13 @@
   let password = "";
   let firstname = "";
   let lastname = "";
+  let email = "";
 </script>
 
 <main>
   <h2 class="text-2xl font-bold mb-8 text-center">Sign up</h2>
   <form
-    on:submit|preventDefault={register(username, firstname, lastname, password)}
+    on:submit|preventDefault={register(username, firstname, lastname, password, email)}
   >
     <div class="mb-4">
       <label for="name" class="block text-sm font-medium text-gray-700"
@@ -50,6 +51,21 @@
         placeholder="insert here"
         required
         bind:value={username}
+        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="block text-sm font-medium text-gray-700"
+        >Email</label
+      >
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="insert here"
+        required
+        bind:value={email}
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>

@@ -13,10 +13,10 @@ router.post("/", async (req, res, next) => {
 
   if (!username || !password) {
     return res.status(400).json({
-        success: false,
-        error: true,
-        message: "Missing username or password",
-      });
+      success: false,
+      error: true,
+      message: "Missing username or password",
+    });
   }
 
   try {
@@ -24,10 +24,10 @@ router.post("/", async (req, res, next) => {
 
     if (!foundUser || !(await bcrypt.compare(password, foundUser.password))) {
       return res.status(400).json({
-          success: false,
-          error: true,
-          message: "Authentication failed",
-        });
+        success: false,
+        error: true,
+        message: "Authentication failed",
+      });
     }
 
     const token = jwt.sign({ _id: foundUser._id }, process.env.SECRET, {
