@@ -1,11 +1,14 @@
 <script>
   import { logout } from "$lib/util/api.js";
   import user from "$lib/stores/userStore.js";
+  import { Toaster } from "svelte-french-toast";
+
   $: isLoggedIn = $user === null ? false : true;
 
   export let y;
 </script>
 
+<Toaster />
 <header
   class={"sticky z-[10] top-0 duration-200 px-6 flex items-center justify-between border-b border-solid " +
     (y > 0

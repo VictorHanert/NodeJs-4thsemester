@@ -1,5 +1,6 @@
 import { goto } from "$app/navigation";
 import user from "$lib/stores/userStore";
+import { toast } from "svelte-french-toast";
 
 const BASE_URL = "http://localhost:3030";
 
@@ -66,6 +67,10 @@ export function login(username, password) {
     })
     .then(async () => {
       await goto("/myspace", { noScroll: false, replaceState: true });
+      toast.success("You have been logged in", {
+        duration: 3000,
+        position: "top-center",
+      });
     })
     .catch((error) => {
       console.log("Error loggin in", error);
@@ -80,7 +85,19 @@ export async function logout() {
       Accept: "application/json",
       "content-type": "application/json",
     },
+  })
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    user.update((val) => (val = null));
+    toast.success("You have been logged out", {
+      duration: 3000,
+      position: "top-center",
+    });
+    return goto("/", { noScroll: false, replaceState: true });
+  })
+  .catch((error) => {
+    console.error("Error logging out:", error);
   });
-  user.update((val) => (val = null));
-  await goto("/", { noScroll: false, replaceState: true });
 }
