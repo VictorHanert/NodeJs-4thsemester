@@ -22,10 +22,10 @@ await db.exec(`CREATE TABLE IF NOT EXISTS villages (
 `);
 
 // DML
-const isDeleteMode = false;
+const isDeleteMode = process.argv.includes('delete');
 if (isDeleteMode) {
-    await db.run(`DROP TABLE IF EXISTS volcanoes`);
-    await db.run(`DROP TABLE IF EXISTS villages`);
+  await db.run(`DROP TABLE IF EXISTS volcanoes`);
+  await db.run(`DROP TABLE IF EXISTS villages`);
 }
 
 await db.run(`
