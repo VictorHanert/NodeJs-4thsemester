@@ -16,6 +16,12 @@
             <h2 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
                 <span class="poppins text-violet-400">About</span> page
             </h2>
+            <p class="text-lg sm:text-xl md:text-2xl">
+                This is the about page of <a href="/myspace" class="poppins text-violet-400"> MySpace</a>. Here you can find information about the project and the team behind it.
+            </p>
+            <p class="text-lg sm:text-xl md:text-2xl">
+                MySpace is the perfect platform if you want to write your name on a virtual whiteboard.
+            </p>
         </div>
     </section>
 </main>

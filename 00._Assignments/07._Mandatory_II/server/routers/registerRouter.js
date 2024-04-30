@@ -6,11 +6,14 @@ import { welcomeEmail } from "../util/email.js";
 
 const router = Router();
 
+// Define the admin username
+const adminUsername = "admin"; 
+
 router.post("/", async function (req, res, next) {
   try {
     const { username, password, firstname, lastname, email } = req.body;
 
-    if (!username || !password) {
+    if (!username || !password || !firstname || !lastname || !email) {
       return res.status(400).json({
         success: false,
         error: true,
@@ -21,6 +24,9 @@ router.post("/", async function (req, res, next) {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // Check if the registering user is the admin
+    const role = username === adminUsername ? "admin" : "user";
+
     // Prepare user object for registration
     const newUser = {
       firstname,
@@ -28,6 +34,7 @@ router.post("/", async function (req, res, next) {
       username,
       email,
       password: hashedPassword,
+      role, 
     };
     const newRegister = await registerUser(dbConn.Coll, newUser);
 
@@ -45,7 +52,7 @@ router.post("/", async function (req, res, next) {
     <hr style="width: 100%;border: none;border-top: 1px solid #eaeaea;border-color: #cccccc;margin: 20px 0;"/>
     <p>Welcome to MySpace, the platform where you can write your name on a virtual whiteboard.</p>
     <p>We are excited to have you on board and can't wait to see what you will create.</p>
-    <p>Your username is: <strong>${username}</strong>, and you password is: <strong>${password}</strong>.</p>
+    <p>Your username is: <strong>${username}</strong>, and your password is: <strong>${password}</strong>.</p>
     <p>🪐 Best regards,</p>
     <p>The MySpace team 🚀</p>
     <hr style="width: 100%;border: none;border-top: 1px solid #eaeaea;border-color: #cccccc;margin: 20px 0;"/>
