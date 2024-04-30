@@ -45,6 +45,14 @@
         </h4>
       </a>
     {:else}
+      {#if $user.role === 'admin'}
+        <a
+          href="/admin"
+          class="duration-200 hover:text-violet-400"
+        >
+          <p>Admin <i class="fa-solid fa-crown"></i></p>
+        </a>
+      {/if}
       <button
         class="blueShadow px-5 py-2 rounded-full bg-violet-400 hover:bg-violet-500"
         on:click={logout}

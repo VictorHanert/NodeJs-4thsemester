@@ -73,6 +73,10 @@ export function login(username, password) {
     })
     .catch((error) => {
       console.log("Error loggin in", error);
+      toast.error("Wrong username or password", {
+        duration: 3000,
+        position: "top-center",
+      });
     });
 }
 
