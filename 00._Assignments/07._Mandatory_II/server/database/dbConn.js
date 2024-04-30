@@ -1,10 +1,10 @@
 import { MongoClient } from "mongodb";
 
-const fireConnection = () => {
-  const url = "mongodb://0.0.0.0:27017";
+const dbConnection = () => {
+  const url = process.env.MONGO_URL || "mongodb://localhost:27017";
   const client = new MongoClient(url);
-  const dbName = "users";
-  const collName = "AllUsers";
+  const dbName = process.env.MONGO_DB_NAME || "database";
+  const collName = process.env.MONGO_COLLECTION_NAME || "collection";
   const db = client.db(dbName);
   const collection = db.collection(collName);
 
@@ -16,4 +16,4 @@ const fireConnection = () => {
   };
 };
 
-export default fireConnection();
+export default dbConnection();

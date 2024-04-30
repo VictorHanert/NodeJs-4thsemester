@@ -1,8 +1,6 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
-import dbConn from "../dbConn.js";
-import fs from "fs";
-import path from "path";
+import dbConn from "../database/dbConn.js";
 import { registerUser } from "../util/userUtil.js";
 import { welcomeEmail } from "../util/email.js";
 
@@ -47,7 +45,7 @@ router.post("/", async function (req, res, next) {
     <hr style="width: 100%;border: none;border-top: 1px solid #eaeaea;border-color: #cccccc;margin: 20px 0;"/>
     <p>Welcome to MySpace, the platform where you can write your name on a virtual whiteboard.</p>
     <p>We are excited to have you on board and can't wait to see what you will create.</p>
-    <p>Your username is: <strong>${username}</strong>, and you password is: <strong>${password}</strong>,</p>
+    <p>Your username is: <strong>${username}</strong>, and you password is: <strong>${password}</strong>.</p>
     <p>🪐 Best regards,</p>
     <p>The MySpace team 🚀</p>
     <hr style="width: 100%;border: none;border-top: 1px solid #eaeaea;border-color: #cccccc;margin: 20px 0;"/>

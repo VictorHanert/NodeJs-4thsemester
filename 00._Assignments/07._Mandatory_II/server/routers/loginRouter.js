@@ -1,7 +1,7 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import dbConn from "../dbConn.js";
+import dbConn from "../database/dbConn.js";
 import { findUser } from "../util/userUtil.js";
 import dotenv from "dotenv";
 dotenv.config();

@@ -1,18 +1,28 @@
 import { ObjectId } from "mongodb";
 
 const findUser = async (collection, user) => {
-  const User = await collection.find({ username: user }).toArray();
-  return User[0];
+  try {
+    const User = await collection.findOne({ username: user });
+    return User;
+  } catch (error) {
+    console.error("Error finding user:", error);
+    throw error;
+  }
 };
 
 const findUserById = async (collection, userId) => {
-  const User = await collection.find({ _id: ObjectId(userId) }).toArray();
-  return User[0];
+  try {
+    const User = await collection.findOne({ _id: ObjectId(userId) });
+    return User;
+  } catch (error) {
+    console.error("Error finding user:", error);
+    throw error;
+  }
 };
 
 const registerUser = async (collection, user) => {
   const register = await collection.insertOne(user);
-  const index = await collection.createIndex({ username: 1 }, { unique: true });
+  await collection.createIndex({ username: 1 }, { unique: true });
   return register;
 };
 
