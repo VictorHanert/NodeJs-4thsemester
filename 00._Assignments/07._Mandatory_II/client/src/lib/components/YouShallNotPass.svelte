@@ -6,7 +6,7 @@
       Go to
       <a href="/auth" class="poppins text-violet-400 hover:text-violet-600"
         >login-page</a
-      > to acces the content
+      > to access the content
     </h2>
     <iframe
       title="you-shall-not-pass"

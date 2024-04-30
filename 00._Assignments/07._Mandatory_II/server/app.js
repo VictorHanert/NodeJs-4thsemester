@@ -33,6 +33,9 @@ app.use("/api/login", loginRouter);
 app.use("/api/user", userRouter);
 app.use("/api/logout", logoutRouter);
 
+import adminRouter from './routers/adminRouter.js';
+app.use('/api/admin', adminRouter);
+
 // Get port from environment and store in Express.
 const PORT = process.env.PORT ?? 8080;
 app.listen(PORT, console.log("Server is running on port", PORT));
